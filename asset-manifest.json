@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Motionscroll-website/static/css/main.2d27958e.css",
+    "main.js": "/Motionscroll-website/static/js/main.cef577ed.js",
+    "static/js/453.195b869a.chunk.js": "/Motionscroll-website/static/js/453.195b869a.chunk.js",
+    "static/media/video.mp4": "/Motionscroll-website/static/media/video.7b1de5585371c00ae410.mp4",
+    "static/media/4.png": "/Motionscroll-website/static/media/4.48d13cf433550bafa381.png",
+    "static/media/2.png": "/Motionscroll-website/static/media/2.9972ea16cc6c0578d7e1.png",
+    "static/media/1.png": "/Motionscroll-website/static/media/1.0efaf17ed399b5cbe8c6.png",
+    "static/media/3.png": "/Motionscroll-website/static/media/3.fc7c0bd078e0f0800115.png",
+    "index.html": "/Motionscroll-website/index.html",
+    "main.2d27958e.css.map": "/Motionscroll-website/static/css/main.2d27958e.css.map",
+    "main.cef577ed.js.map": "/Motionscroll-website/static/js/main.cef577ed.js.map",
+    "453.195b869a.chunk.js.map": "/Motionscroll-website/static/js/453.195b869a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d27958e.css",
+    "static/js/main.cef577ed.js"
+  ]
+}
