@@ -1,0 +1,87 @@
+.download-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.download-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.download-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.download-button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background: #45a049;
+}
+
+.version-info {
+  color: #c9c9c9;
+  font-size: 0.9rem;
+}
+
+.download-instructions {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.download-instructions ol {
+  text-align: left;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.download-instructions li {
+  margin: 10px 0;
+  color: #c9c9c9;
+}
+
+@media (max-width: 768px) {
+  .download-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.github-section {
+  margin-top: 60px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.github-link {
+  display: inline-block;
+  color: #58a6ff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: 1px solid #58a6ff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.github-link:hover {
+  background: rgba(88, 166, 255, 0.1);
+  transform: translateY(-2px);
+} 

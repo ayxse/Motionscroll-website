@@ -1,0 +1,107 @@
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: white;
+}
+
+.about-intro {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #c9c9c9;
+}
+
+.setup-guide {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.setup-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-content {
+  padding: 20px;
+}
+
+.step-content h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.step-content p {
+  color: #c9c9c9;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.important-note {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(255, 217, 0, 0.1);
+  border-radius: 5px;
+  border-left: 3px solid #ffd900;
+}
+
+.important-note h5 {
+  color: #ffd900;
+  margin-bottom: 5px;
+}
+
+.overlay-info {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+
+.overlay-info ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.overlay-info li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  color: #c9c9c9;
+}
+
+.overlay-info li:before {
+  content: "■";
+  position: absolute;
+  left: 0;
+  color: #c9c9c9;
+  font-size: 0.8em;
+  top: 0.2em;
+}
+
+@media (max-width: 768px) {
+  .setup-steps {
+    grid-template-columns: 1fr;
+  }
+} 
