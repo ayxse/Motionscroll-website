@@ -2,6 +2,10 @@ import React from 'react';
 import './Download.css';
 
 function Download() {
+  const handleDownload = () => {
+    window.location.href = "https://github.com/ayxse/MotionScroll/releases/download/v1.0.0/MotionScroll.apk";
+  };
+
   return (
     <div className="download-section">
       <h2>Download MotionScroll</h2>
@@ -9,7 +13,10 @@ function Download() {
         <div className="download-card">
           <h3>Android App</h3>
           <p>Compatible with Android 8.0 and higher</p>
-          <button className="download-button">
+          <button 
+            className="download-button"
+            onClick={handleDownload}
+          >
             Download APK
           </button>
           <p className="version-info">Version 1.0.0</p>
