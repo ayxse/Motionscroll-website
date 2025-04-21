@@ -16,7 +16,7 @@ function HeroSection() {
     <section className="pt-10 pb-10 px-4 text-center mb-12">
       {/* Lighter gray/white gradient text */}
       <h2 className="text-4xl md:text-6xl font-bold mb-10 bg-gradient-to-r from-gray-200 via-white to-gray-200 text-transparent bg-clip-text leading-snug pb-3">
-        Hands-free scrolling powered by your eyes
+        Hands-free scrolling powered by head movements
       </h2>
 
       {/* Image container - keeps text-center alignment working well */}

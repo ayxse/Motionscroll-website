@@ -238,7 +238,7 @@ function Guide() {
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 6: Enable Camera</h4> 
-              <p className="text-gray-300">Enable the camera slider within the app to start gaze tracking and control your screen.</p> 
+              <p className="text-gray-300">Enable the camera slider within the app to start face tracking and control your screen.</p> 
             </div>
           </div>
         </div>

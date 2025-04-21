@@ -17,7 +17,8 @@ function App() {
         {/* Correcting typo *again* for stable sticky behavior (from-black/70) */}
         {/* Note: Header and Routes need z-index to appear above noise */}
         {/* Made padding responsive: p-3 md:p-5 */}
-        <header className="w-full p-3 md:p-5 bg-gradient-to-r from-black/10 to-black/10 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center"> 
+        {/* Removed backdrop-blur-md for consistent appearance */}
+        <header className="w-full p-3 md:p-5 bg-gradient-to-r from-black/10 to-black/10 border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center"> 
           <div className="text-center mb-6"> {/* Increased bottom margin */}
             {/* Made title responsive and wrapped in Link, added hover effect */}
             <Link to="/">
