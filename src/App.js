@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import Link
 // import logo from './images/download.png'; // Unused
 // import video from './images/video.mp4'; // Unused
 // import './App.css'; // Will replace with Tailwind
@@ -19,8 +19,10 @@ function App() {
         {/* Made padding responsive: p-3 md:p-5 */}
         <header className="w-full p-3 md:p-5 bg-gradient-to-r from-black/10 to-black/10 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center"> 
           <div className="text-center mb-6"> {/* Increased bottom margin */}
-            {/* Made title responsive: text-3xl sm:text-4xl md:text-5xl */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-italics">MotionScroll</h1> 
+            {/* Made title responsive and wrapped in Link, added hover effect */}
+            <Link to="/">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-italics hover:text-gray-300 transition-colors">MotionScroll</h1> 
+            </Link>
             <p className="text-lg text-gray-600"></p> {/* Darker gray for tagline placeholder */}
           </div>
           <Navbar />
