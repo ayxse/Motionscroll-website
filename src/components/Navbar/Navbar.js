@@ -9,6 +9,9 @@ function Navbar() {
         {/* Even larger font size and padding */}
         <li><Link to="/" className="text-gray-400 hover:text-gray-100 px-4 py-3 rounded-md text-base font-medium transition duration-150 ease-in-out">Home</Link></li>
         <li><Link to="/download" className="text-gray-400 hover:text-gray-100 px-4 py-3 rounded-md text-base font-medium transition duration-150 ease-in-out">Download</Link></li>
+        {/* Changed About to Guide */}
+        <li><Link to="/guide" className="text-gray-400 hover:text-gray-100 px-4 py-3 rounded-md text-base font-medium transition duration-150 ease-in-out">Guide</Link></li>
+        {/* Added new About link */}
         <li><Link to="/about" className="text-gray-400 hover:text-gray-100 px-4 py-3 rounded-md text-base font-medium transition duration-150 ease-in-out">About</Link></li>
       </ul>
     </nav>

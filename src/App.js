@@ -5,19 +5,22 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import './App.css'; // Will replace with Tailwind
 import Navbar from './components/Navbar/Navbar';
 import Download from './components/Download/Download';
-import About from './components/About/About';
+import About from './components/About/About'; // This is the NEW About component
+import Guide from './components/Guide/Guide'; // Import the new Guide component
 import Home from './components/Home/Home'; // Import the new Home component
 
 function App() {
   return (
     <Router basename="/Motionscroll-website">
-      {/* Added font-geist-mono and noise-bg class */}
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black text-white flex flex-col items-center font-geist-mono noise-bg"> 
+      {/* Added font-geist-mono and noise-bg class, ADDED overflow-x-hidden */}
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black text-white flex flex-col items-center font-geist-mono noise-bg overflow-x-hidden"> 
         {/* Correcting typo *again* for stable sticky behavior (from-black/70) */}
         {/* Note: Header and Routes need z-index to appear above noise */}
-        <header className="w-full p-5 bg-gradient-to-r from-black/10 to-black/10 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center"> 
+        {/* Made padding responsive: p-3 md:p-5 */}
+        <header className="w-full p-3 md:p-5 bg-gradient-to-r from-black/10 to-black/10 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center"> 
           <div className="text-center mb-6"> {/* Increased bottom margin */}
-            <h1 className="text-5xl font-italics">MotionScroll</h1> {/* Increased font size */}
+            {/* Made title responsive: text-3xl sm:text-4xl md:text-5xl */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-italics">MotionScroll</h1> 
             <p className="text-lg text-gray-600"></p> {/* Darker gray for tagline placeholder */}
           </div>
           <Navbar />
@@ -28,7 +31,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/download" element={<Download />} />
-            <Route path="/about" element={<About />} />
+            {/* Updated /about route to point to the new About component */}
+            <Route path="/about" element={<About />} /> 
+            {/* Added /guide route */}
+            <Route path="/guide" element={<Guide />} /> 
           </Routes>
         </div>
       </div>
