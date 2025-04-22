@@ -98,47 +98,51 @@ function Guide() {
       <h2 className="text-4xl font-bold text-center mb-16 text-white">Installation Guides</h2> 
       {/* Removed descriptive paragraph */}
 
-      {/* Permissions Guide Section */}
-      <div className="mb-16 bg-red-900/30 border border-red-500/50 rounded-xl shadow-lg shadow-black/30 p-8">
+      {/* Permissions Guide Section - Adjusted red colors */}
+      <div className="mb-16 bg-red-800/30 border border-red-400/50 rounded-xl shadow-lg shadow-black/30 p-8">
         <h3 className="text-3xl font-semibold text-center mb-8 text-red-300">⚠️ Important: Permissions Guide</h3>
         <p className="text-center text-red-200 mb-10 max-w-2xl mx-auto">
           Due to Android security restrictions, you must manually allow restricted settings for MotionScroll to function correctly. Follow these steps before proceeding to the main Setup Guide.
         </p>
 
-        <div className="space-y-10"> 
-          {/* Step 1: Initial Check */}
-          <div>
-            <h4 className="text-2xl font-semibold mb-4 text-white">Step 1: Check Accessibility Settings</h4>
-            <p className="text-gray-300 mb-6">After installing and opening MotionScroll, navigate to your phone's Accessibility settings. Look for "Installed apps" or "Downloaded apps". You'll likely find MotionScroll listed but greyed out due to restricted settings.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {/* Pass the specific step image array */}
-              <img src={perm7} alt="Open MotionScroll App" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm7, permStep1Images)} />
-              <img src={perm71} alt="Navigate Accessibility Services" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm71, permStep1Images)} />
-              <img src={perm8} alt="MotionScroll Greyed Out" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm8, permStep1Images)} />
+        {/* Changed space-y-10 to gap-8 and removed space-y-10 */}
+        <div className="grid grid-cols-1 gap-8"> 
+          {/* Step 1: Initial Check - Adjusted step background and screenshot outline */}
+          <div className="bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6"> {/* Darker red background */}
+            <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 1: Check Accessibility Settings</h4>
+            <p className="text-gray-300 mb-6 text-center">After installing and opening MotionScroll, navigate to your phone's Accessibility settings. Look for "Installed apps" or "Downloaded apps". You'll likely find MotionScroll listed but greyed out due to restricted settings.</p>
+            {/* Removed inner background, added darker outline to images */}
+            <div className="flex flex-wrap justify-center gap-4"> 
+              {/* Pass the specific step image array, darker outline */}
+              <img src={perm7} alt="Open MotionScroll App" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm7, permStep1Images)} />
+              <img src={perm71} alt="Navigate Accessibility Services" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm71, permStep1Images)} />
+              <img src={perm8} alt="MotionScroll Greyed Out" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm8, permStep1Images)} />
             </div>
           </div>
 
-          {/* Step 2: Find App Settings */}
-          <div>
-            <h4 className="text-2xl font-semibold mb-4 text-white">Step 2: Locate MotionScroll in Settings</h4>
-            <p className="text-gray-300 mb-6">Go to your main device Settings. Find the "Apps" or "Applications" section. Search for and select "MotionScroll" from the list of installed applications.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {/* Pass the specific step image array */}
-              <img src={perm9} alt="Device Settings" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm9, permStep2Images)} />
-              <img src={perm10} alt="Search for Apps" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm10, permStep2Images)} />
-              <img src={perm101} alt="Find MotionScroll in Apps" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm101, permStep2Images)} />
-              <img src={perm11} alt="Select MotionScroll" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm11, permStep2Images)} />
+          {/* Step 2: Find App Settings - Darker red background, darker screenshot outline */}
+          <div className="bg-black/25  border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6"> {/* Darker red background */}
+            <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 2: Locate MotionScroll in Settings</h4>
+            <p className="text-gray-300 mb-6 text-center">Go to your main device Settings. Find the "Apps" or "Applications" section. Search for and select "MotionScroll" from the list of installed applications.</p>
+            {/* Removed inner background, added darker outline to images */}
+            <div className="flex flex-wrap justify-center gap-4"> 
+              {/* Pass the specific step image array, darker outline */}
+              <img src={perm9} alt="Device Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm9, permStep2Images)} />
+              <img src={perm10} alt="Search for Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm10, permStep2Images)} />
+              <img src={perm101} alt="Find MotionScroll in Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm101, permStep2Images)} />
+              <img src={perm11} alt="Select MotionScroll" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm11, permStep2Images)} />
             </div>
           </div>
 
-          {/* Step 3: Allow Restricted Settings */}
-          <div>
-            <h4 className="text-2xl font-semibold mb-4 text-white">Step 3: Allow Restricted Settings</h4>
-            <p className="text-gray-300 mb-6">Once on the MotionScroll app info page, tap the three dots (⋮) in the top-right corner. Select "Allow restricted settings" from the dropdown menu.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {/* Pass the specific step image array */}
-              <img src={perm12} alt="Tap Three Dots" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm12, permStep3Images)} />
-              <img src={perm13} alt="Allow Restricted Settings" className="w-auto h-48 rounded-md border border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => openModal(perm13, permStep3Images)} />
+          {/* Step 3: Allow Restricted Settings - Darker red background, darker screenshot outline */}
+          <div className="bg-black/25  border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6"> {/* Darker red background */}
+            <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 3: Allow Restricted Settings</h4>
+            <p className="text-gray-300 mb-6 text-center">Once on the MotionScroll app info page, tap the three dots (⋮) in the top-right corner. Select "Allow restricted settings" from the dropdown menu.</p>
+            {/* Removed inner background, added darker outline to images */}
+            <div className="flex flex-wrap justify-center gap-4"> 
+              {/* Pass the specific step image array, darker outline */}
+              <img src={perm12} alt="Tap Three Dots" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm12, permStep3Images)} />
+              <img src={perm13} alt="Allow Restricted Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-red-400/35" onClick={() => openModal(perm13, permStep3Images)} />
             </div>
              <p className="text-center text-green-300 mt-8 font-semibold">
               After completing these steps, you can proceed with the Setup Guide below.
