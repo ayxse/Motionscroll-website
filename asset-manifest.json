@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Motionscroll-website/static/css/main.bef1bfe5.css",
-    "main.js": "/Motionscroll-website/static/js/main.f8f983b6.js",
+    "main.css": "/Motionscroll-website/static/css/main.59f11e22.css",
+    "main.js": "/Motionscroll-website/static/js/main.399d757d.js",
     "static/js/453.195b869a.chunk.js": "/Motionscroll-website/static/js/453.195b869a.chunk.js",
     "static/media/noise.jpg": "/Motionscroll-website/static/media/noise.0b0d0c554af5c6a7318c.jpg",
     "static/media/10.1.png": "/Motionscroll-website/static/media/10.1.c03ad44b03bb6075cb37.png",
@@ -21,12 +21,12 @@
     "static/media/7.1.png": "/Motionscroll-website/static/media/7.1.9465b2cdd145546c97ee.png",
     "static/media/motionscroll.png": "/Motionscroll-website/static/media/motionscroll.2111d1221695270a018c.png",
     "index.html": "/Motionscroll-website/index.html",
-    "main.bef1bfe5.css.map": "/Motionscroll-website/static/css/main.bef1bfe5.css.map",
-    "main.f8f983b6.js.map": "/Motionscroll-website/static/js/main.f8f983b6.js.map",
+    "main.59f11e22.css.map": "/Motionscroll-website/static/css/main.59f11e22.css.map",
+    "main.399d757d.js.map": "/Motionscroll-website/static/js/main.399d757d.js.map",
     "453.195b869a.chunk.js.map": "/Motionscroll-website/static/js/453.195b869a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bef1bfe5.css",
-    "static/js/main.f8f983b6.js"
+    "static/css/main.59f11e22.css",
+    "static/js/main.399d757d.js"
   ]
 }
