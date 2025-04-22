@@ -43,7 +43,7 @@ function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-gray-900 backdrop-blur-sm shadow-lg rounded-b-md z-20"> {/* Show only on small screens when open */}
+        <div className="md:hidden absolute top-full left-0 right-0 bg-gray-900 shadow-lg rounded-b-md z-20"> {/* Show only on small screens when open */}
           <ul className="flex flex-col items-center py-4 space-y-2">
             <li><Link to="/" onClick={closeMenu} className="block text-gray-300 hover:text-white px-4 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out w-full text-center">Home</Link></li>
             <li><Link to="/download" onClick={closeMenu} className="block text-gray-300 hover:text-white px-4 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out w-full text-center">Download</Link></li>
