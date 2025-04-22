@@ -9,11 +9,11 @@ function HeroSection() {
   const rotationSpeedSeconds = 30; // <-- EDIT THIS VALUE TO CHANGE SPIN SPEED
 
   // Define the desired width of the image in pixels.
-  const imageWidthPx = 250; // <-- EDIT THIS VALUE TO RESIZE THE IMAGE (e.g., 150, 300, 400)
+  const imageWidthPx = 200; // <-- EDIT THIS VALUE TO RESIZE THE IMAGE (e.g., 150, 300, 400)
 
   return (
     // Reduced top padding slightly (pt-10) and increased bottom margin (mb-82 seems large, maybe typo? Adjusted to mb-12 for example)
-    <section className="pt-10 pb-10 px-4 text-center mb-12">
+    <section className="pt-10 pb-10 px-4 text-center mb-3">
       {/* Lighter gray/white gradient text */}
       <h2 className="text-4xl md:text-6xl font-bold mb-10 bg-gradient-to-r from-gray-200 via-white to-gray-200 text-transparent bg-clip-text leading-snug pb-3">
         Hands-free scrolling powered by head movements
