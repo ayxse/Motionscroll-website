@@ -3,7 +3,7 @@ import React from 'react';
 
 function Download() {
   const handleDownload = () => {
-    window.location.href = "https://github.com/ayxse/MotionScroll/releases/tag/v1.0.0";
+    window.location.href = "https://github.com/ayxse/MotionScroll/releases/tag/v1.0.1";
   };
 
   return (
