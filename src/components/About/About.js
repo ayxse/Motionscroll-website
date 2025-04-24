@@ -24,10 +24,10 @@ function About() {
           href="https://github.com/ayxse/MotionScroll" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-gray-400 hover:text-white hover:underline transition duration-200 text-lg" // Made link slightly larger
+          className="text-gray-400 hover:text-white hover:underline transition duration-200 text-lg break-words w-full block" // Made link slightly larger, added break-words and w-full block
         >
           github.com/ayxse/MotionScroll
-        </a>
+</a>
       </div>
     </div>
   );

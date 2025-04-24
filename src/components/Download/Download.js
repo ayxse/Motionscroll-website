@@ -45,10 +45,10 @@ function Download() {
           href="https://github.com/ayxse/MotionScroll" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-gray-400 hover:text-white hover:underline transition duration-200" // Gray link, white hover
+          className="text-gray-400 hover:text-white hover:underline transition duration-200 break-words w-full block" // Gray link, white hover, added break-words, w-full, and block
         >
           @ayxse/MotionScroll
-        </a>
+</a>
       </div>
     </div>
   );
