@@ -21,7 +21,7 @@ function Download() {
           >
             Download APK
           </button>
-          <p className="text-sm text-gray-500">Version 1.0.0</p> {/* Medium gray text */}
+          <p className="text-sm text-gray-500">Version 1.0.1</p> {/* Medium gray text */}
         </div>
         
         {/* Adjusted Instructions box background (bg-gray-800/60) */}
