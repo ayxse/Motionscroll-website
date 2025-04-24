@@ -18,28 +18,4 @@ code {
 @tailwind components;
 @tailwind utilities;
 
-/* Class to apply image noise texture via pseudo-element */
-.noise-bg {
-  position: relative; /* Needed for absolute positioning of pseudo-element */
-  /* overflow: hidden; <-- Keep removed */
-}
-
-/* Pseudo-element for the image noise overlay */
-.noise-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0; /* Cover the entire element */
-  background-image: url('./images/noise.jpg'); /* Corrected filename */
-  background-repeat: repeat; /* Tile the image */
-  opacity: 0.20; /* Set opacity to 20% */
-  z-index: 0; /* Place it above the gradient but below content */
-  pointer-events: none; /* Prevent interference */
-}
-
-/* Ensure actual content stays above the noise layer */
-.noise-bg > * {
-  position: relative; /* Needed for z-index stacking */
-  z-index: 1; /* Ensure direct children are above the ::before */
-}
-
-/* Removed .image-noise-overlay rules */
+/* Removed styles related to noise background */
