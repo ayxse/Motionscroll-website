@@ -13,10 +13,12 @@ function HeroSection() {
 
   return (
     // Reduced top padding slightly (pt-10) and increased bottom margin (mb-82 seems large, maybe typo? Adjusted to mb-12 for example)
-    <section className="pt-10 pb-10 px-4 text-center mb-3">
+    <section className="pt-4 pb-10 px-4 text-center mb-3">
       {/* Lighter gray/white gradient text */}
       <h2 className="text-4xl md:text-6xl font-bold mb-10 bg-gradient-to-r from-gray-200 via-white to-gray-200 text-transparent bg-clip-text leading-snug pb-3">
-        Hands-free scrolling powered by head movements
+        Hands-free scrolling<br />
+        powered by<br />
+        head movements
       </h2>
 
       {/* Image container - keeps text-center alignment working well */}
