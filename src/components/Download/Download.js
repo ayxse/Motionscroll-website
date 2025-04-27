@@ -3,7 +3,7 @@ import React from 'react';
 
 function Download() {
   const handleDownload = () => {
-    window.location.href = "https://github.com/ayxse/MotionScroll/releases/tag/v1.0.1";
+    window.location.href = "https://github.com/ayxse/MotionScroll/releases/tag/v1.0.2";
   };
 
   return (
@@ -21,7 +21,7 @@ function Download() {
           >
             Download APK
           </button>
-          <p className="text-sm text-gray-500">Version 1.0.1</p> {/* Medium gray text */}
+          <p className="text-sm text-gray-500">Version 1.0.2</p> {/* Medium gray text */}
         </div>
         
         {/* Adjusted Instructions box background (bg-gray-800/60) */}
