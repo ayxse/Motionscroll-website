@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Get the current path name (e.g., "/download")
+      var path = window.location.pathname;
+
+      // Get the query parameters (e.g., "?foo=bar")
+      var search = window.location.search;
+
+      // Construct the target URL with the hash format
+      // Example: If path="/download" and search="?id=123", target will be "/#/download?id=123"
+      // Assumes deployment at the root (custom domain or username.github.io)
+      var target = '/#' + path + search;
+
+      // Log for debugging (optional)
+      console.log('Redirecting from: ' + window.location.href);
+      console.log('Redirecting to: ' + target);
+
+      // Perform the redirect. replace() is better than assign() as it doesn't create history entry
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <p>If you are not redirected automatically, please navigate to the <a href="/#/">homepage</a>.</p>
+  </body>
+</html>
