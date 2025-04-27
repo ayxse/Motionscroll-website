@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import Link
+import { HashRouter as Router } from 'react-router-dom';
 // import logo from './images/download.png'; // Unused
 // import video from './images/video.mp4'; // Unused
 // import './App.css'; // Will replace with Tailwind
