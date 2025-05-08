@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useScrollAnimation from '../../hooks/useScrollAnimation'; // Import the hook
 
 function FeaturesSection() {
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
+
+  // Force initial hidden state briefly on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInitialLoadComplete(true);
+    }, 150); // 150ms delay
+    return () => clearTimeout(timer); // Cleanup timeout
+  }, []); // Run only once
+
   // Options for the observer
   const observerOptions = {
     threshold: 0.5, // Trigger when 50% of the element is visible
@@ -21,9 +31,9 @@ function FeaturesSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"> 
         {/* Card 1 */}
         <div 
-          ref={card1Ref} // Assign ref
-          className={`bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform hover:-translate-y-2 transition-all duration-1000 ease-out delay-100 ${ // Added delay-100
-            isCard1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4' // Conditional animation classes
+          ref={card1Ref}
+          className={`bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform hover:-translate-y-2 transition-all duration-1000 ease-out delay-100 ${ 
+            !initialLoadComplete || !isCard1Visible ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0' // Updated conditional logic
           }`}
         >
           <div className="text-white mx-auto mb-4 w-9 h-9">
@@ -38,9 +48,9 @@ function FeaturesSection() {
 
         {/* Card 2 */}
         <div 
-          ref={card2Ref} // Assign ref
-          className={`bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform hover:-translate-y-2 transition-all duration-1000 ease-out delay-200 ${ // Added delay-200
-            isCard2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4' // Conditional animation classes
+          ref={card2Ref}
+          className={`bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform hover:-translate-y-2 transition-all duration-1000 ease-out delay-200 ${ 
+            !initialLoadComplete || !isCard2Visible ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0' // Updated conditional logic
           }`}
         >
           <div className="text-white mx-auto mb-4 w-9 h-9">
@@ -55,9 +65,9 @@ function FeaturesSection() {
 
         {/* Card 3 */}
         <div 
-          ref={card3Ref} // Assign ref
-          className={`bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform hover:-translate-y-2 transition-all duration-1000 ease-out delay-300 ${ // Added delay-300
-            isCard3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4' // Conditional animation classes
+          ref={card3Ref}
+          className={`bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform hover:-translate-y-2 transition-all duration-1000 ease-out delay-300 ${ 
+            !initialLoadComplete || !isCard3Visible ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0' // Updated conditional logic
           }`}
         >
           <div className="text-white mx-auto mb-4 w-9 h-9">
