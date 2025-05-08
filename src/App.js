@@ -5,6 +5,7 @@ import Download from './components/Download/Download';
 import About from './components/About/About';
 import Guide from './components/Guide/Guide';
 import Home from './components/Home/Home';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
             <Route path="/guide" element={<Guide />} />
           </Routes>
         </div>
+
+        <Footer />
       </div>
     </Router>
   );
