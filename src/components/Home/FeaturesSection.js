@@ -4,7 +4,7 @@ import useScrollAnimation from '../../hooks/useScrollAnimation'; // Import the h
 function FeaturesSection() {
   // Options for the observer (optional, adjust as needed)
   const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of the element is visible
+    threshold: 0.5, // Trigger when 50% of the element is visible
   };
 
   // Apply the hook to each card
