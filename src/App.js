@@ -9,7 +9,7 @@ import Home from './components/Home/Home';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black text-white flex flex-col items-center font-geist-mono noise-bg overflow-x-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black text-white flex flex-col items-center font-geist-mono overflow-x-hidden">
         <header className="w-full p-3 md:p-5 bg-gradient-to-r from-black/10 to-black/10 border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center">
           <div className="text-center mb-6">
             <Link to="/">

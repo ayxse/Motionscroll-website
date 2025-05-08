@@ -114,9 +114,9 @@ function Guide() {
             {/* Removed inner background, added darker outline to images */}
             <div className="flex flex-wrap justify-center gap-4"> 
               {/* Pass the specific step image array, darker outline */}
-              <img src={perm7} alt="Open MotionScroll App" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm7, permStep1Images)} />
-              <img src={perm71} alt="Navigate Accessibility Services" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm71, permStep1Images)} />
-              <img src={perm8} alt="MotionScroll Greyed Out" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm8, permStep1Images)} />
+              <img src={perm7} alt="Open MotionScroll App" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm7, permStep1Images)} />
+              <img src={perm71} alt="Navigate Accessibility Services" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm71, permStep1Images)} />
+              <img src={perm8} alt="MotionScroll Greyed Out" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm8, permStep1Images)} />
             </div>
           </div>
 
@@ -127,10 +127,10 @@ function Guide() {
             {/* Removed inner background, added darker outline to images */}
             <div className="flex flex-wrap justify-center gap-4">
               {/* Pass the specific step image array, darker outline */}
-              <img src={perm9} alt="Device Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm9, permStep2Images)} />
-              <img src={perm10} alt="Search for Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm10, permStep2Images)} />
-              <img src={perm101} alt="Find MotionScroll in Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm101, permStep2Images)} />
-              <img src={perm11} alt="Select MotionScroll" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm11, permStep2Images)} />
+              <img src={perm9} alt="Device Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm9, permStep2Images)} />
+              <img src={perm10} alt="Search for Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm10, permStep2Images)} />
+              <img src={perm101} alt="Find MotionScroll in Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm101, permStep2Images)} />
+              <img src={perm11} alt="Select MotionScroll" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm11, permStep2Images)} />
             </div>
           </div>
 
@@ -141,8 +141,8 @@ function Guide() {
             {/* Removed inner background, added darker outline to images */}
             <div className="flex flex-wrap justify-center gap-4">
               {/* Pass the specific step image array, darker outline */}
-              <img src={perm12} alt="Tap Three Dots" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm12, permStep3Images)} />
-              <img src={perm13} alt="Allow Restricted Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-2 outline-white/25" onClick={() => openModal(perm13, permStep3Images)} />
+              <img src={perm12} alt="Tap Three Dots" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm12, permStep3Images)} />
+              <img src={perm13} alt="Allow Restricted Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm13, permStep3Images)} />
             </div>
              <p className="text-center text-green-300 mt-8 font-semibold">
               After completing these steps, you can proceed with the Setup Guide below.
@@ -182,7 +182,7 @@ function Guide() {
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 2: Locate MotionScroll</h4> 
-              <p className="text-gray-300">In your device's Accessibility settings, find and select "MotionScroll" from the list of services.</p> 
+              <p className="text-gray-300">In your device\'s Accessibility settings, find and select "MotionScroll" from the list of services.</p> 
             </div>
           </div>
 
