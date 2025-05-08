@@ -2,9 +2,10 @@ import React from 'react';
 import useScrollAnimation from '../../hooks/useScrollAnimation'; // Import the hook
 
 function FeaturesSection() {
-  // Options for the observer (optional, adjust as needed)
+  // Options for the observer
   const observerOptions = {
     threshold: 0.5, // Trigger when 50% of the element is visible
+    rootMargin: "-50px 0px 0px 0px" // Wait until element is 50px into viewport from top
   };
 
   // Apply the hook to each card
