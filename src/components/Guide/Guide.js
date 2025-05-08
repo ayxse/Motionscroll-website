@@ -182,7 +182,7 @@ function Guide() {
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 2: Locate MotionScroll</h4> 
-              <p className="text-gray-300">In your device\'s Accessibility settings, find and select "MotionScroll" from the list of services.</p> 
+              <p className="text-gray-300">In your device's Accessibility settings, find and select "MotionScroll" from the list of services.</p> 
             </div>
           </div>
 
