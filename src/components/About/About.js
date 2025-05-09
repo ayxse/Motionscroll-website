@@ -11,6 +11,7 @@ function About() {
           and browsing more accessible and convenient, especially in situations where 
           using your hands isn't practical.
         </p>
+        <p>MotionScroll leverages Google's ML Kit for face detection along with Android’s Accessibility Services to provide a smooth, intuitive, and accessible scrolling solution.</p>
         <p className="text-lg text-gray-300 leading-relaxed">
           The goal is to provide a seamless experience for users who need or prefer alternative ways to interact with their devices.
         </p>

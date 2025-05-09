@@ -1,29 +1,27 @@
-import React from 'react'; // Removed useState, useEffect
+import React from 'react';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 function FeaturesSection() {
-  const observerOptions = {
-    threshold: 0.5,
-    rootMargin: "-50px 0px 0px 0px"
-  };
-
-  const [card1Ref, isCard1Visible] = useScrollAnimation(observerOptions);
-  const [card2Ref, isCard2Visible] = useScrollAnimation(observerOptions);
-  const [card3Ref, isCard3Visible] = useScrollAnimation(observerOptions);
+  // We'll let the hook use its defaults for better scroll trigger
+  const sectionRef = useScrollAnimation()[0]; // Only get the ref, ignore the visibility state
+  const [card1Ref, isCard1Visible] = useScrollAnimation({ delay: 100 });
+  const [card2Ref, isCard2Visible] = useScrollAnimation({ delay: 200 });
+  const [card3Ref, isCard3Visible] = useScrollAnimation({ delay: 300 });
 
   // Base classes for all cards including transition
-  const baseCardClasses = "bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform hover:-translate-y-2 transition-all duration-1000 ease-out";
+  const baseCardClasses = "bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl shadow-lg shadow-black/30 hover:shadow-gray-500/30 hover:border-gray-400 transform transition-all duration-700 ease-out";
 
   return (
-    <section className="pt-4 px-1 text-center mb-5"> 
+    <section className="pt-4 px-1 text-center mb-5" ref={sectionRef}> 
       <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-100">How It Works</h2>
-      <p className="text-lg text-gray-500 max-w-3xl mx-auto mb-12">Using your device's front-facing camera, MotionScroll tracks your head movements to automatically scroll content. No hands required - just look up or down.</p>
-
+      <p className="text-lg text-gray-500 max-w-3xl mx-auto mb-12">Using your device's front-facing camera, MotionScroll tracks your head movements to automatically scroll content. No hands required - just look up or down. </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"> 
         {/* Card 1 */}
         <div 
           ref={card1Ref}
-          className={`${baseCardClasses} delay-100 ${isCard1Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
+          className={`${baseCardClasses} ${isCard1Visible 
+            ? 'opacity-100 translate-y-0 hover:-translate-y-2' 
+            : 'opacity-0 translate-y-10'}`}
         >
           <div className="text-white mx-auto mb-4 w-9 h-9">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -38,7 +36,9 @@ function FeaturesSection() {
         {/* Card 2 */}
         <div 
           ref={card2Ref}
-          className={`${baseCardClasses} delay-200 ${isCard2Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
+          className={`${baseCardClasses} ${isCard2Visible 
+            ? 'opacity-100 translate-y-0 hover:-translate-y-2' 
+            : 'opacity-0 translate-y-10'}`}
         >
           <div className="text-white mx-auto mb-4 w-9 h-9">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -53,7 +53,9 @@ function FeaturesSection() {
         {/* Card 3 */}
         <div 
           ref={card3Ref}
-          className={`${baseCardClasses} delay-300 ${isCard3Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
+          className={`${baseCardClasses} ${isCard3Visible 
+            ? 'opacity-100 translate-y-0 hover:-translate-y-2' 
+            : 'opacity-0 translate-y-10'}`}
         >
           <div className="text-white mx-auto mb-4 w-9 h-9">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
