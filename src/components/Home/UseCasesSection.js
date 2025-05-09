@@ -12,6 +12,9 @@ function UseCasesSection() {
   const [li4Ref, isLi4Visible] = useScrollAnimation(observerOptions);
   const [li5Ref, isLi5Visible] = useScrollAnimation(observerOptions);
 
+  // Base classes for all list items including transition
+  const baseLiClasses = "flex items-center text-gray-300 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500";
+
   return (
     <section className="py-10 px-4 text-center mb-16"> 
       <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-100">Use cases:</h2> {/* Lighter gray heading */}
@@ -19,9 +22,7 @@ function UseCasesSection() {
       <ul className="list-none p-0 max-w-lg mx-auto text-left space-y-4"> 
         <li 
           ref={li1Ref}
-          className={`flex items-center text-gray-300 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500 ${
-            isLi1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          }`}
+          className={`${baseLiClasses} ${isLi1Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white w-6 h-6 mr-4 shrink-0">
             <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
@@ -31,9 +32,7 @@ function UseCasesSection() {
         </li>
         <li 
           ref={li2Ref}
-          className={`flex items-center text-gray-300 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500 ${
-            isLi2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          }`}
+          className={`${baseLiClasses} ${isLi2Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="text-white w-6 h-6 mr-4 shrink-0">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -42,9 +41,7 @@ function UseCasesSection() {
         </li>
         <li 
           ref={li3Ref}
-          className={`flex items-center text-gray-300 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500 ${
-            isLi3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          }`}
+          className={`${baseLiClasses} ${isLi3Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="text-white w-6 h-6 mr-4 shrink-0" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -54,9 +51,7 @@ function UseCasesSection() {
         </li>
         <li 
           ref={li4Ref}
-          className={`flex items-center text-gray-300 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500 ${
-            isLi4Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          }`}
+          className={`${baseLiClasses} ${isLi4Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white w-6 h-6 mr-4 shrink-0">
             <circle cx="5.5" cy="17.5" r="2.5"/>
@@ -67,9 +62,7 @@ function UseCasesSection() {
         </li>
         <li 
           ref={li5Ref}
-          className={`flex items-center text-gray-300 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500 ${
-            isLi5Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          }`}
+          className={`${baseLiClasses} ${isLi5Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="text-white w-6 h-6 mr-4 shrink-0">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />

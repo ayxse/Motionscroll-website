@@ -1,11 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles can go here */
 body {
+  @apply bg-gradient-to-br from-black via-[#050505] to-black text-white font-geist-mono;
+  overflow-x: hidden; /* Prevent horizontal scroll on the body */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y: scroll; /* Always show scrollbar to prevent layout shift */
 }
 
 code {
@@ -13,9 +19,21 @@ code {
     monospace;
 }
 
-@tailwind base;
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Initial state for scroll animations */
+.scroll-animate-init {
+  opacity: 0;
+  transform: translateY(1rem); /* Corresponds to translate-y-4 for initial offset */
+}
+
+/* Ensure the html and body take up full height if you want min-h-screen on App to work reliably with flex col */
+html, body, #root {
+  height: 100%;
+  color-scheme: dark;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
 
 /* Removed styles related to noise background */

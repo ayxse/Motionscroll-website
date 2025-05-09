@@ -90,6 +90,9 @@ function Guide() {
   // Hook for Overlay section
   const [overlayRef, isOverlayVisible] = useScrollAnimation(observerOptions);
 
+  // Base classes for animated sections in this component
+  const baseAnimateClasses = "transition-all duration-700 ease-out";
+
   // Effect for keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -129,9 +132,9 @@ function Guide() {
         <div className="grid grid-cols-1 gap-8"> 
           {/* Step 1: Initial Check - Adjusted step background and screenshot outline */}
           <div 
-            ref={permStep1Ref} // Assign ref
-            className={`bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 transition-all duration-700 ease-out delay-100 ${ // Added animation classes
-              isPermStep1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={permStep1Ref}
+            className={`${baseAnimateClasses} delay-100 bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 ${ 
+              isPermStep1Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 1: Check Accessibility Settings</h4>
@@ -147,9 +150,9 @@ function Guide() {
 
           {/* Step 2: Find App Settings - Darker red background, darker screenshot outline */}
           <div 
-            ref={permStep2Ref} // Assign ref
-            className={`bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 transition-all duration-700 ease-out delay-200 ${ // Added animation classes
-              isPermStep2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={permStep2Ref}
+            className={`${baseAnimateClasses} delay-200 bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 ${ 
+              isPermStep2Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 2: Locate MotionScroll in Settings</h4>
@@ -166,9 +169,9 @@ function Guide() {
 
           {/* Step 3: Allow Restricted Settings - Darker red background, darker screenshot outline */}
           <div 
-            ref={permStep3Ref} // Assign ref
-            className={`bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 transition-all duration-700 ease-out delay-300 ${ // Added animation classes
-              isPermStep3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={permStep3Ref}
+            className={`${baseAnimateClasses} delay-300 bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 ${ 
+              isPermStep3Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 3: Allow Restricted Settings</h4>
@@ -194,9 +197,9 @@ function Guide() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Step 1 */}
           <div 
-            ref={setupStep1Ref} // Assign ref
-            className={`bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 transition-all duration-700 ease-out delay-100 ${ // Animation classes
-              isSetupStep1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={setupStep1Ref}
+            className={`${baseAnimateClasses} delay-100 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
+              isSetupStep1Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <img 
@@ -214,9 +217,9 @@ function Guide() {
 
           {/* Step 2 */}
           <div 
-            ref={setupStep2Ref} // Assign ref
-            className={`bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 transition-all duration-700 ease-out delay-200 ${ // Animation classes
-              isSetupStep2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={setupStep2Ref}
+            className={`${baseAnimateClasses} delay-200 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
+              isSetupStep2Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <img 
@@ -233,9 +236,9 @@ function Guide() {
 
           {/* Step 3 */}
           <div 
-            ref={setupStep3Ref} // Assign ref
-            className={`bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 transition-all duration-700 ease-out delay-100 ${ // Animation classes (reset delay for row)
-              isSetupStep3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={setupStep3Ref}
+            className={`${baseAnimateClasses} delay-100 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
+              isSetupStep3Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <img 
@@ -252,9 +255,9 @@ function Guide() {
 
           {/* Step 4 */}
           <div 
-            ref={setupStep4Ref} // Assign ref
-            className={`bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 transition-all duration-700 ease-out delay-200 ${ // Animation classes
-              isSetupStep4Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={setupStep4Ref}
+            className={`${baseAnimateClasses} delay-200 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
+              isSetupStep4Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <img 
@@ -271,9 +274,9 @@ function Guide() {
 
           {/* Step 5 */}
           <div 
-            ref={setupStep5Ref} // Assign ref
-            className={`bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 transition-all duration-700 ease-out delay-100 ${ // Animation classes (reset delay for row)
-              isSetupStep5Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={setupStep5Ref}
+            className={`${baseAnimateClasses} delay-100 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
+              isSetupStep5Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <img 
@@ -294,9 +297,9 @@ function Guide() {
 
           {/* Step 6 */}
           <div 
-            ref={setupStep6Ref} // Assign ref
-            className={`bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 transition-all duration-700 ease-out delay-200 ${ // Animation classes
-              isSetupStep6Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            ref={setupStep6Ref}
+            className={`${baseAnimateClasses} delay-200 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
+              isSetupStep6Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
             }`}
           >
             <img 
@@ -314,9 +317,9 @@ function Guide() {
 
         {/* Overlay Control Guide */}
         <div 
-          ref={overlayRef} // Assign ref
-          className={`bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl transition-all duration-700 ease-out ${ // Animation classes
-            isOverlayVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          ref={overlayRef}
+          className={`${baseAnimateClasses} bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl ${ 
+            isOverlayVisible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
           }`}
         >
           <h3 className="text-2xl font-semibold text-center mb-4 text-white">Using the Overlay Shortcut</h3> 
