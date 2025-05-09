@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black text-white flex flex-col items-center font-geist-mono overflow-x-hidden">
+      <div className="min-h-screen bg-gradient-to-r from-black via-gray-950 to-black text-white flex flex-col items-center font-geist-mono overflow-x-hidden">
         <header className="w-full p-3 md:p-5 bg-gradient-to-tr from-black/30 via-gray-900/10 to-black/30 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center">
           <div className="text-center mb-6">
             <Link to="/">
