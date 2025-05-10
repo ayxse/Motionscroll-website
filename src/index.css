@@ -36,4 +36,12 @@ html, body, #root {
   flex-direction: column;
 }
 
+/* Utility class to disable text selection */
+.select-none {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
 /* Removed styles related to noise background */

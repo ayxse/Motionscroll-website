@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className="w-full max-w-4xl">
+    <nav className="w-full max-w-4xl select-none">
       {/* Desktop Menu - show on medium screens and above */}
       <ul className="hidden md:flex justify-center space-x-12">
         <li><Link to="/" className="text-gray-400 hover:text-gray-100 hover:bg-gray-700/30 px-4 py-3 rounded-md text-base font-medium transition duration-150 ease-in-out">Home</Link></li>

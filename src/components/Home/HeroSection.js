@@ -21,7 +21,7 @@ function HeroSection() {
       </h2>
 
       {/* Image container - keeps text-center alignment working well */}
-      <div className="mt-16 mb-2">
+      <div className="mt-16 mb-2 select-none">
         <img
           src={scrollImage}
           alt="Demonstration of hands-free scrolling (rotating)"

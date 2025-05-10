@@ -14,7 +14,7 @@ function App() {
         <header className="w-full p-3 md:p-5 bg-black/80 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center">
           <div className="text-center mb-6">
             <Link to="/">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-italics hover:text-gray-300 transition-colors">MotionScroll</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-italics hover:text-gray-300 transition-colors select-none">MotionScroll</h1>
             </Link>
             <p className="text-lg text-gray-600"></p>
           </div>
