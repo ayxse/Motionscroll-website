@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react'; // Import useEffect, useCallback
-import useScrollAnimation from '../../hooks/useScrollAnimation'; // Import the hook
 import step1Img from '../../images/tutorial/1.png';
 import step2Img from '../../images/tutorial/2.png';
 import step3Img from '../../images/tutorial/3.png';
@@ -71,28 +70,6 @@ function Guide() {
     }
   }, [expandedImageIndex, activeImageSet]);
 
-  // Observer options
-  const observerOptions = { threshold: 0.2 };
-
-  // Hooks for Permissions Guide steps
-  const [permStep1Ref, isPermStep1Visible] = useScrollAnimation(observerOptions);
-  const [permStep2Ref, isPermStep2Visible] = useScrollAnimation(observerOptions);
-  const [permStep3Ref, isPermStep3Visible] = useScrollAnimation(observerOptions);
-
-  // Hooks for Setup Guide steps
-  const [setupStep1Ref, isSetupStep1Visible] = useScrollAnimation(observerOptions);
-  const [setupStep2Ref, isSetupStep2Visible] = useScrollAnimation(observerOptions);
-  const [setupStep3Ref, isSetupStep3Visible] = useScrollAnimation(observerOptions);
-  const [setupStep4Ref, isSetupStep4Visible] = useScrollAnimation(observerOptions);
-  const [setupStep5Ref, isSetupStep5Visible] = useScrollAnimation(observerOptions);
-  const [setupStep6Ref, isSetupStep6Visible] = useScrollAnimation(observerOptions);
-
-  // Hook for Overlay section
-  const [overlayRef, isOverlayVisible] = useScrollAnimation(observerOptions);
-
-  // Base classes for animated sections in this component
-  const baseAnimateClasses = "transition-all duration-700 ease-out";
-
   // Effect for keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -131,12 +108,7 @@ function Guide() {
         {/* Changed space-y-10 to gap-8 and removed space-y-10 */}
         <div className="grid grid-cols-1 gap-8"> 
           {/* Step 1: Initial Check - Adjusted step background and screenshot outline */}
-          <div 
-            ref={permStep1Ref}
-            className={`${baseAnimateClasses} delay-100 bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 ${ 
-              isPermStep1Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6">
             <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 1: Check Accessibility Settings</h4>
             <p className="text-gray-300 mb-6 text-center">After installing and opening MotionScroll, navigate to your phone's Accessibility settings. Look for "Installed apps" or "Downloaded apps". You'll likely find MotionScroll listed but greyed out due to restricted settings.</p>
             {/* Removed inner background, added darker outline to images */}
@@ -149,12 +121,7 @@ function Guide() {
           </div>
 
           {/* Step 2: Find App Settings - Darker red background, darker screenshot outline */}
-          <div 
-            ref={permStep2Ref}
-            className={`${baseAnimateClasses} delay-200 bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 ${ 
-              isPermStep2Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6">
             <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 2: Locate MotionScroll in Settings</h4>
             <p className="text-gray-300 mb-6 text-center">Go to your main device Settings. Find the "Apps" or "Applications" section. Search for and select "MotionScroll" from the list of installed applications.</p>
             {/* Removed inner background, added darker outline to images */}
@@ -168,12 +135,7 @@ function Guide() {
           </div>
 
           {/* Step 3: Allow Restricted Settings - Darker red background, darker screenshot outline */}
-          <div 
-            ref={permStep3Ref}
-            className={`${baseAnimateClasses} delay-300 bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6 ${ 
-              isPermStep3Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-black/25 border border-red-300/50 rounded-xl shadow-lg shadow-black/30 p-6">
             <h4 className="text-2xl font-semibold mb-4 text-white text-center">Step 3: Allow Restricted Settings</h4>
             <p className="text-gray-300 mb-6 text-center">Once on the MotionScroll app info page, tap the three dots (⋮) in the top-right corner. Select "Allow restricted settings" from the dropdown menu.</p>
             {/* Removed inner background, added darker outline to images */}
@@ -196,12 +158,7 @@ function Guide() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Step 1 */}
-          <div 
-            ref={setupStep1Ref}
-            className={`${baseAnimateClasses} delay-100 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
-              isSetupStep1Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step1Img} 
               alt="Step 1: Find Accessibility Services" 
@@ -216,12 +173,7 @@ function Guide() {
           </div>
 
           {/* Step 2 */}
-          <div 
-            ref={setupStep2Ref}
-            className={`${baseAnimateClasses} delay-200 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
-              isSetupStep2Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step2Img} 
               alt="Step 2: Locate MotionScroll" 
@@ -235,12 +187,7 @@ function Guide() {
           </div>
 
           {/* Step 3 */}
-          <div 
-            ref={setupStep3Ref}
-            className={`${baseAnimateClasses} delay-100 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
-              isSetupStep3Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step3Img} 
               alt="Step 3: Activate Service" 
@@ -254,12 +201,7 @@ function Guide() {
           </div>
 
           {/* Step 4 */}
-          <div 
-            ref={setupStep4Ref}
-            className={`${baseAnimateClasses} delay-200 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
-              isSetupStep4Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step4Img} 
               alt="Step 4: Grant Permissions" 
@@ -273,12 +215,7 @@ function Guide() {
           </div>
 
           {/* Step 5 */}
-          <div 
-            ref={setupStep5Ref}
-            className={`${baseAnimateClasses} delay-100 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
-              isSetupStep5Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step5Img} 
               alt="Step 5: Enable Overlay Shortcut" 
@@ -296,12 +233,7 @@ function Guide() {
           </div>
 
           {/* Step 6 */}
-          <div 
-            ref={setupStep6Ref}
-            className={`${baseAnimateClasses} delay-200 bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 ${ 
-              isSetupStep6Visible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-            }`}
-          >
+          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step6Img} 
               alt="Step 6: Enable Camera" 
@@ -316,12 +248,7 @@ function Guide() {
         </div>
 
         {/* Overlay Control Guide */}
-        <div 
-          ref={overlayRef}
-          className={`${baseAnimateClasses} bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl ${ 
-            isOverlayVisible ? 'opacity-100 translate-y-0' : 'scroll-animate-init'
-          }`}
-        >
+        <div className="bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl">
           <h3 className="text-2xl font-semibold text-center mb-4 text-white">Using the Overlay Shortcut</h3> 
           <p className="text-gray-400 text-center mb-6">The overlay shortcut is crucial for a smooth experience:</p> 
           <ul className="list-disc list-inside space-y-2 text-gray-300 max-w-md mx-auto"> 
