@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 function useScrollAnimation(options = {}) {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     // Don't run on the server side
@@ -20,14 +21,21 @@ function useScrollAnimation(options = {}) {
     // Merge provided options with defaults
     const finalOptions = { ...defaultOptions, ...intersectionOptions };
     
-    const observer = new IntersectionObserver((entries) => {
+    // Add a forced minimum delay for initial load
+    const initialLoadDelay = 700; // milliseconds to wait before checking visibility
+    
+    // Observer callback function
+    const handleIntersection = (entries) => {
       entries.forEach(entry => {
         // When the element is intersecting (visible)
-        if (entry.isIntersecting) {
-          // Use the provided delay or default to 100ms
-          const timeoutDelay = delay || 100;
+        if (entry.isIntersecting && !hasAnimatedRef.current) {
+          // Mark as animated to prevent duplicate animations
+          hasAnimatedRef.current = true;
           
-          // Add a slight delay to make it feel more natural and stagger elements
+          // Use the provided delay or default to 300ms
+          const timeoutDelay = delay || 300;
+          
+          // Add the animation delay
           setTimeout(() => {
             setIsVisible(true);
           }, timeoutDelay);
@@ -36,15 +44,47 @@ function useScrollAnimation(options = {}) {
           observer.unobserve(entry.target); 
         }
       });
-    }, finalOptions);
+    };
+    
+    const observer = new IntersectionObserver(handleIntersection, finalOptions);
 
     const currentElement = elementRef.current;
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
+    
+    // Instead of observing immediately, wait a bit to ensure animations run
+    // even if the elements are already visible on load
+    const initialTimer = setTimeout(() => {
+      if (currentElement) {
+        observer.observe(currentElement);
+        
+        // If element is already in viewport on first load, we still want animation
+        // In this case, we'll manually trigger the animation after a minimum delay
+        const checkInitialVisibility = () => {
+          const rect = currentElement.getBoundingClientRect();
+          const isElementInViewport = (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+          
+          if (isElementInViewport && !hasAnimatedRef.current) {
+            hasAnimatedRef.current = true;
+            
+            // Respect the staggered delay but add it to our minimum initial delay
+            const timeoutDelay = delay || 300;
+            setTimeout(() => {
+              setIsVisible(true);
+            }, timeoutDelay);
+          }
+        };
+        
+        checkInitialVisibility();
+      }
+    }, initialLoadDelay);
 
-    // Cleanup observer on component unmount
+    // Cleanup observer and timers on component unmount
     return () => {
+      clearTimeout(initialTimer);
       if (currentElement) {
         observer.unobserve(currentElement);
       }
