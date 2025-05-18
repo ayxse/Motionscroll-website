@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+<h1 align="center">MotionScroll Website</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="src/images/motionscroll.png" alt="MotionScroll Logo" width="150"/>
+</p>
 
-## Available Scripts
+This repository contains the source code for the official website of MotionScroll, an Android application for hands-free scrolling.
 
-In the project directory, you can run:
+**View the live website: [https://www.motionscroll.app/](https://www.motionscroll.app/)**
 
-### `npm start`
+**Find the main Android application project here: [https://github.com/ayxse/MotionScroll](https://github.com/ayxse/MotionScroll)**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About MotionScroll (The Android App)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+MotionScroll allows you to scroll through your Android screen using simple head movements. It's built with Jetpack Compose and ML Kit.
 
-### `npm test`
+The application leverages the front camera and Android's accessibility features to enable hands-free scrolling based on head tilt detection.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Key features include:
+*   Head-controlled vertical scrolling.
+*   System-wide control in most scrollable apps.
+*   Multiple scroll modes (Continuous, Skip, Delay).
+*   Adjustable skip distance and custom cooldowns.
+*   Easy camera toggle.
+*   Privacy-focused: Face detection processing happens on-device.
 
-### `npm run build`
+For more details, including download links, full feature list, and how to build the Android app, please visit the [main MotionScroll repository](https://github.com/ayxse/MotionScroll).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
