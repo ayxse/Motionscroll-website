@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'; // Import useEffect, useCallback
+import { useImageFadeIn } from '../../hooks/useImageFadeIn';
 import step1Img from '../../images/tutorial/1.png';
 import step2Img from '../../images/tutorial/2.png';
 import step3Img from '../../images/tutorial/3.png';
@@ -33,7 +34,9 @@ function Guide() {
   // State now holds the index of the expanded image, or null if closed
   const [expandedImageIndex, setExpandedImageIndex] = useState(null); 
   // State to track which image set is currently being viewed (permissions or setup)
-  const [activeImageSet, setActiveImageSet] = useState([]); 
+  const [activeImageSet, setActiveImageSet] = useState([]);
+  // Use the custom fade-in hook
+  const { handleImageLoad, getImageClasses } = useImageFadeIn(); 
 
   // Function to open the modal, finding the index in the correct set
   const openModal = (imageSrc, imageSet) => {
@@ -114,9 +117,27 @@ function Guide() {
             {/* Removed inner background, added darker outline to images */}
             <div className="flex flex-wrap justify-center gap-4"> 
               {/* Pass the specific step image array, darker outline */}
-              <img src={perm7} alt="Open MotionScroll App" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm7, permStep1Images)} />
-              <img src={perm71} alt="Navigate Accessibility Services" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm71, permStep1Images)} />
-              <img src={perm8} alt="MotionScroll Greyed Out" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm8, permStep1Images)} />
+              <img 
+                src={perm7} 
+                alt="Open MotionScroll App" 
+                className={getImageClasses(perm7, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm7, permStep1Images)}
+                onLoad={() => handleImageLoad(perm7)}
+              />
+              <img 
+                src={perm71} 
+                alt="Navigate Accessibility Services" 
+                className={getImageClasses(perm71, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm71, permStep1Images)}
+                onLoad={() => handleImageLoad(perm71)}
+              />
+              <img 
+                src={perm8} 
+                alt="MotionScroll Greyed Out" 
+                className={getImageClasses(perm8, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm8, permStep1Images)}
+                onLoad={() => handleImageLoad(perm8)}
+              />
             </div>
           </div>
 
@@ -127,10 +148,34 @@ function Guide() {
             {/* Removed inner background, added darker outline to images */}
             <div className="flex flex-wrap justify-center gap-4">
               {/* Pass the specific step image array, darker outline */}
-              <img src={perm9} alt="Device Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm9, permStep2Images)} />
-              <img src={perm10} alt="Search for Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm10, permStep2Images)} />
-              <img src={perm101} alt="Find MotionScroll in Apps" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm101, permStep2Images)} />
-              <img src={perm11} alt="Select MotionScroll" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm11, permStep2Images)} />
+              <img 
+                src={perm9} 
+                alt="Device Settings" 
+                className={getImageClasses(perm9, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm9, permStep2Images)}
+                onLoad={() => handleImageLoad(perm9)}
+              />
+              <img 
+                src={perm10} 
+                alt="Search for Apps" 
+                className={getImageClasses(perm10, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm10, permStep2Images)}
+                onLoad={() => handleImageLoad(perm10)}
+              />
+              <img 
+                src={perm101} 
+                alt="Find MotionScroll in Apps" 
+                className={getImageClasses(perm101, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm101, permStep2Images)}
+                onLoad={() => handleImageLoad(perm101)}
+              />
+              <img 
+                src={perm11} 
+                alt="Select MotionScroll" 
+                className={getImageClasses(perm11, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm11, permStep2Images)}
+                onLoad={() => handleImageLoad(perm11)}
+              />
             </div>
           </div>
 
@@ -141,8 +186,20 @@ function Guide() {
             {/* Removed inner background, added darker outline to images */}
             <div className="flex flex-wrap justify-center gap-4">
               {/* Pass the specific step image array, darker outline */}
-              <img src={perm12} alt="Tap Three Dots" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm12, permStep3Images)} />
-              <img src={perm13} alt="Allow Restricted Settings" className="w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-opacity outline outline-1 outline-white/25" onClick={() => openModal(perm13, permStep3Images)} />
+              <img 
+                src={perm12} 
+                alt="Tap Three Dots" 
+                className={getImageClasses(perm12, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm12, permStep3Images)}
+                onLoad={() => handleImageLoad(perm12)}
+              />
+              <img 
+                src={perm13} 
+                alt="Allow Restricted Settings" 
+                className={getImageClasses(perm13, "w-auto h-48 rounded-md cursor-pointer hover:opacity-80 transition-all outline outline-1 outline-white/25")}
+                onClick={() => openModal(perm13, permStep3Images)}
+                onLoad={() => handleImageLoad(perm13)}
+              />
             </div>
              <p className="text-center text-green-300 mt-8 font-semibold">
               After completing these steps, you can proceed with the Setup Guide below.
@@ -162,9 +219,10 @@ function Guide() {
             <img 
               src={step1Img} 
               alt="Step 1: Find Accessibility Services" 
-              className="w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-opacity cursor-pointer flex-shrink-0" 
+              className={getImageClasses(step1Img, "w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-all cursor-pointer flex-shrink-0")}
               // Pass setupImages array for setup guide images
-              onClick={() => openModal(step1Img, setupImages)} 
+              onClick={() => openModal(step1Img, setupImages)}
+              onLoad={() => handleImageLoad(step1Img)}
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 1: Find Accessibility Services</h4> 
@@ -177,8 +235,9 @@ function Guide() {
             <img 
               src={step2Img} 
               alt="Step 2: Locate MotionScroll" 
-              className="w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-opacity cursor-pointer flex-shrink-0" 
+              className={getImageClasses(step2Img, "w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-all cursor-pointer flex-shrink-0")}
               onClick={() => openModal(step2Img, setupImages)}
+              onLoad={() => handleImageLoad(step2Img)}
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 2: Locate MotionScroll</h4> 
@@ -191,8 +250,9 @@ function Guide() {
             <img 
               src={step3Img} 
               alt="Step 3: Activate Service" 
-              className="w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-opacity cursor-pointer flex-shrink-0" 
+              className={getImageClasses(step3Img, "w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-all cursor-pointer flex-shrink-0")}
               onClick={() => openModal(step3Img, setupImages)}
+              onLoad={() => handleImageLoad(step3Img)}
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 3: Activate Service</h4> 
@@ -205,8 +265,9 @@ function Guide() {
             <img 
               src={step4Img} 
               alt="Step 4: Grant Permissions" 
-              className="w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-opacity cursor-pointer flex-shrink-0" 
+              className={getImageClasses(step4Img, "w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-all cursor-pointer flex-shrink-0")}
               onClick={() => openModal(step4Img, setupImages)}
+              onLoad={() => handleImageLoad(step4Img)}
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 4: Grant Permissions</h4> 
@@ -219,8 +280,9 @@ function Guide() {
             <img 
               src={step5Img} 
               alt="Step 5: Enable Overlay Shortcut" 
-              className="w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-opacity cursor-pointer flex-shrink-0" 
+              className={getImageClasses(step5Img, "w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-all cursor-pointer flex-shrink-0")}
               onClick={() => openModal(step5Img, setupImages)}
+              onLoad={() => handleImageLoad(step5Img)}
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 5: Enable Overlay Shortcut</h4> 
@@ -237,8 +299,9 @@ function Guide() {
             <img 
               src={step6Img} 
               alt="Step 6: Enable Camera" 
-              className="w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-opacity cursor-pointer flex-shrink-0" 
+              className={getImageClasses(step6Img, "w-24 h-auto md:w-32 rounded-md border border-gray-600 hover:opacity-80 transition-all cursor-pointer flex-shrink-0")}
               onClick={() => openModal(step6Img, setupImages)}
+              onLoad={() => handleImageLoad(step6Img)}
             /> 
             <div className="text-center md:text-left">
               <h4 className="text-xl font-semibold mb-2 text-white">Step 6: Enable Camera</h4> 
