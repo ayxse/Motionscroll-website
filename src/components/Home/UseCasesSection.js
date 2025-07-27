@@ -13,7 +13,7 @@ function UseCasesSection() {
   const [li5Ref, isLi5Visible] = useScrollAnimation(observerOptions);
 
   // Base classes for all list items including transition
-  const baseLiClasses = "flex items-center text-gray-300 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500";
+  const baseLiClasses = "flex items-center bg-gray-950/90 p-4 bg-gray-800/60 border border-gray-600/50 rounded-lg transition-all duration-1000 ease-out hover:bg-gray-700/60 hover:border-gray-500";
 
   return (
     <section className="py-10 px-4 text-center mb-16"> 

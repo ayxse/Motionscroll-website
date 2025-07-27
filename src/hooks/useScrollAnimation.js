@@ -17,13 +17,13 @@ function useScrollAnimation(options = {}) {
 
     // Extract delay from options if present
     const { delay, ...intersectionOptions } = options;
-    
+
     // Merge provided options with defaults
     const finalOptions = { ...defaultOptions, ...intersectionOptions };
-    
+
     // Add a forced minimum delay for initial load
-    const initialLoadDelay = 700; // milliseconds to wait before checking visibility
-    
+    const initialLoadDelay = 200; // milliseconds to wait before checking visibility
+
     // Observer callback function
     const handleIntersection = (entries) => {
       entries.forEach(entry => {
@@ -31,31 +31,31 @@ function useScrollAnimation(options = {}) {
         if (entry.isIntersecting && !hasAnimatedRef.current) {
           // Mark as animated to prevent duplicate animations
           hasAnimatedRef.current = true;
-          
-          // Use the provided delay or default to 300ms
-          const timeoutDelay = delay || 300;
-          
+
+          // Use the provided delay or default to 150ms
+          const timeoutDelay = delay || 150;
+
           // Add the animation delay
           setTimeout(() => {
             setIsVisible(true);
           }, timeoutDelay);
-          
+
           // Optional: Unobserve after animation triggers once
-          observer.unobserve(entry.target); 
+          observer.unobserve(entry.target);
         }
       });
     };
-    
+
     const observer = new IntersectionObserver(handleIntersection, finalOptions);
 
     const currentElement = elementRef.current;
-    
+
     // Instead of observing immediately, wait a bit to ensure animations run
     // even if the elements are already visible on load
     const initialTimer = setTimeout(() => {
       if (currentElement) {
         observer.observe(currentElement);
-        
+
         // If element is already in viewport on first load, we still want animation
         // In this case, we'll manually trigger the animation after a minimum delay
         const checkInitialVisibility = () => {
@@ -66,18 +66,18 @@ function useScrollAnimation(options = {}) {
             rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
             rect.right <= (window.innerWidth || document.documentElement.clientWidth)
           );
-          
+
           if (isElementInViewport && !hasAnimatedRef.current) {
             hasAnimatedRef.current = true;
-            
+
             // Respect the staggered delay but add it to our minimum initial delay
-            const timeoutDelay = delay || 300;
+            const timeoutDelay = delay || 150;
             setTimeout(() => {
               setIsVisible(true);
             }, timeoutDelay);
           }
         };
-        
+
         checkInitialVisibility();
       }
     }, initialLoadDelay);

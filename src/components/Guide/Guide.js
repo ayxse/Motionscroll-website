@@ -215,7 +215,7 @@ function Guide() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Step 1 */}
-          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+          <div className="bg-gray-950/90 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step1Img} 
               alt="Step 1: Find Accessibility Services" 
@@ -231,7 +231,7 @@ function Guide() {
           </div>
 
           {/* Step 2 */}
-          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+          <div className="bg-gray-950/90 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step2Img} 
               alt="Step 2: Locate MotionScroll" 
@@ -246,7 +246,7 @@ function Guide() {
           </div>
 
           {/* Step 3 */}
-          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+          <div className="bg-gray-950/90 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step3Img} 
               alt="Step 3: Activate Service" 
@@ -261,7 +261,7 @@ function Guide() {
           </div>
 
           {/* Step 4 */}
-          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+          <div className="bg-gray-950/90 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step4Img} 
               alt="Step 4: Grant Permissions" 
@@ -276,7 +276,7 @@ function Guide() {
           </div>
 
           {/* Step 5 */}
-          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+          <div className="bg-gray-950/90 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step5Img} 
               alt="Step 5: Enable Overlay Shortcut" 
@@ -295,7 +295,7 @@ function Guide() {
           </div>
 
           {/* Step 6 */}
-          <div className="bg-gray-800/60 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+          <div className="bg-gray-950/90 border border-gray-600/50 rounded-xl shadow-lg shadow-black/30 p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             <img 
               src={step6Img} 
               alt="Step 6: Enable Camera" 
@@ -311,7 +311,7 @@ function Guide() {
         </div>
 
         {/* Overlay Control Guide */}
-        <div className="bg-gray-800/60 border border-gray-600/50 p-8 rounded-xl">
+        <div className="bg-gray-950/90 border border-gray-600/50 p-8 rounded-xl">
           <h3 className="text-2xl font-semibold text-center mb-4 text-white">Using the Overlay Shortcut</h3> 
           <p className="text-gray-400 text-center mb-6">The overlay shortcut is crucial for a smooth experience:</p> 
           <ul className="list-disc list-inside space-y-2 text-gray-300 max-w-md mx-auto"> 
