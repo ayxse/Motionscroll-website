@@ -11,13 +11,13 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-black text-white flex flex-col items-center font-inter overflow-x-hidden">
-        <header className="w-full px-4 py-4 bg-black/90 backdrop-blur-sm border-b border-gray-800/50 sticky top-0 z-50">
+        <header className="w-full px-3 py-3 bg-black/90 backdrop-blur-sm border-b border-gray-800/50 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <Link to="/" className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
                             <img
                 src={`/logo.png?v=${Date.now()}`}
                 alt="MotionScroll Logo" 
-                className="w-10 h-10 animate-spin select-none logo-image"
+                className="w-8 h-8 sm:w-10 sm:h-10 animate-spin select-none logo-image"
                 style={{ 
                   animationDuration: '20s'
                 }}
@@ -26,7 +26,7 @@ function App() {
                   console.log('Logo failed to load:', e);
                 }}
               />
-              <h1 className="text-2xl font-inter font-italics text-gray-300 hover:text-white transition-colors select-none">
+              <h1 className="text-lg sm:text-2xl font-inter font-bold text-white hover:text-gray-300 transition-colors select-none">
                 MotionScroll
               </h1>
             </Link>
