@@ -29,7 +29,7 @@ function Footer() {
 
         {/* Copyright Section */}
         <p className="text-gray-500 font-inter text-sm">
-          © {currentYear} MotionScroll. Open source • Privacy policy
+          © {currentYear} Cristian. Open source • Privacy policy
         </p>
       </div>
     </footer>
