@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-black text-white flex flex-col items-center font-geist-mono overflow-x-hidden">
-        <header className="w-full p-3 md:p-5 bg-black/80 backdrop-blur-md border-b border-gray-700/50 sticky top-0 z-20 flex flex-col items-center">
+        <header className="w-full p-3 md:p-5 bg-black/95 backdrop-blur-xl backdrop-saturate-150 border-b border-gray-700/50 sticky top-0 z-50 flex flex-col items-center">
           <div className="text-center mb-6">
             <Link to="/">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-italics hover:text-gray-300 transition-colors select-none">MotionScroll</h1>
