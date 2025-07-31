@@ -8,25 +8,27 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'geist-mono': ['"Geist Mono"', 'monospace'], // Add Geist Mono
+        'geist-mono': ['"Geist Mono"', 'monospace'],
+        'inter': ['Inter', 'system-ui', 'sans-serif'],
       },
+      colors: {
+        // Map 'gray' to the 'neutral' palette for true monochrome
+        gray: colors.neutral, 
+        // Custom brand colors
+        brand: {
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+        },
+      }
     },
-    colors: {
-      // Map 'gray' to the 'neutral' palette for true monochrome
-      gray: colors.neutral, 
-      // Keep other default colors available if needed (optional, but good practice)
-      white: colors.white,
-      black: colors.black,
-      red: colors.red,
-      yellow: colors.yellow,
-      green: colors.green,
-      blue: colors.blue,
-      indigo: colors.indigo,
-      purple: colors.purple,
-      pink: colors.pink,
-      transparent: 'transparent',
-      current: 'currentColor',
-    }
   },
   plugins: [],
 }
