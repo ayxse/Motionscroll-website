@@ -6,6 +6,7 @@ import About from './components/About/About';
 import Guide from './components/Guide/Guide';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
+import logo from './images/motionscroll.png';
 
 function App() {
   return (
@@ -15,15 +16,11 @@ function App() {
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-1 sm:space-x-3">
                             <img
-                src={`/logo.png?v=${Date.now()}`}
+                src={logo}
                 alt="MotionScroll Logo" 
-                className="w-6 h-6 sm:w-10 sm:h-10 animate-spin select-none logo-image"
+                className="w-8 h-8 sm:w-9 sm:h-9 animate-spin select-none"
                 style={{ 
                   animationDuration: '20s'
-                }}
-                onLoad={() => console.log('Logo loaded successfully')}
-                onError={(e) => {
-                  console.log('Logo failed to load:', e);
                 }}
               />
               <h1 className="text-base sm:text-2xl font-inter font-italics text-white hover:text-gray-300 transition-colors select-none">

@@ -19,17 +19,7 @@ code {
     monospace;
 }
 
-/* Ensure logo PNG displays correctly */
-.logo-image {
-  filter: none !important;
-  background: none !important;
-  background-color: transparent !important;
-  mix-blend-mode: normal !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  border: none !important;
-  box-shadow: none !important;
-}
+
 
 /* Initial state for scroll animations */
 .scroll-animate-init {
