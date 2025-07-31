@@ -26,7 +26,7 @@ function App() {
                   console.log('Logo failed to load:', e);
                 }}
               />
-              <h1 className="text-lg sm:text-2xl font-inter font-bold text-white hover:text-gray-300 transition-colors select-none">
+              <h1 className="text-lg sm:text-2xl font-inter font-italics text-white hover:text-gray-300 transition-colors select-none">
                 MotionScroll
               </h1>
             </Link>
