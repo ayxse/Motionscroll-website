@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className="select-none">
+    <nav className="select-none py-4">
       {/* Desktop Menu */}
       <ul className="hidden md:flex items-center space-x-8">
         <li><Link to="/" className="text-gray-400 hover:text-white font-inter font-medium transition-colors duration-200">Home</Link></li>

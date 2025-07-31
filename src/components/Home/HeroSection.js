@@ -19,7 +19,7 @@ function HeroSection() {
 
       {/* Subtitle */}
       <p className="text-lg md:text-xl text-gray-400 font-inter font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-        Scroll through content using head movements. 
+        Scroll through content using head movements.&nbsp;
         <br className="hidden md:block" />
         Powered by your device's camera.
       </p>
