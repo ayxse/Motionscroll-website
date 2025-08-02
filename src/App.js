@@ -23,7 +23,7 @@ function App() {
                   animationDuration: '50s'
                 }}
               />
-              <h1 className="text-base sm:text-2xl font-inter font-thin text-white hover:text-gray-300 transition-colors select-none">
+              <h1 className="hidden sm:block text-base sm:text-2xl font-inter font-thin text-white hover:text-gray-300 transition-colors select-none">
                 MotionScroll
               </h1>
             </Link>
