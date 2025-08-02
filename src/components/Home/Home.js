@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       {/* Grid Background for home page only */}
-      <div className="absolute inset-0 opacity-[0.60] pointer-events-none z-0" 
+      <div className="absolute inset-0 opacity-[0.35] pointer-events-none z-0" 
            style={{
              backgroundImage: `
                linear-gradient(to right, rgba(252, 249, 249, 0.1) 1px, transparent 1px),
