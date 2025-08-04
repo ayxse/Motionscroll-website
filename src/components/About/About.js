@@ -14,12 +14,28 @@ function About() {
       
       <div className="bg-gray-900/40 border border-gray-800/50 rounded-2xl backdrop-blur-sm p-8 mb-10">
         <p className="text-base text-gray-300 font-inter leading-relaxed mb-6"> 
-          MotionScroll was developed to enable hands-free scrolling through head movement detection. This makes reading 
-          and browsing more accessible and convenient, especially in situations where 
-          using your hands isn't practical.
+          MotionScroll was developed to enable hands-free scrolling through head movement detection. The application
+          uses your device's front-facing camera to track subtle head movements, translating them into smooth scrolling actions. 
+          This makes reading and browsing more accessible and convenient, especially in situations where using your hands isn't 
+          practical - such as when eating, holding a baby, cooking, or for users with mobility limitations.
         </p>
+        
+        <p className="text-base text-gray-300 font-inter leading-relaxed mb-6">
+          The application works by analyzing real-time video input to detect when you look up or down, automatically scrolling 
+          content in the corresponding direction. The sensitivity can be adjusted to match your preferences, ensuring a 
+          comfortable and personalized experience. No special hardware or setup is required - just a device with a camera.
+        </p>
+        
+        <p className="text-base text-gray-300 font-inter leading-relaxed mb-6">
+          The goal is to provide a seamless experience for users who need or prefer alternative ways to interact with their devices. 
+          By leveraging computer vision and machine learning technologies, MotionScroll bridges the gap between traditional input 
+          methods and modern accessibility needs, making digital content more inclusive for everyone.
+        </p>
+        
         <p className="text-base text-gray-300 font-inter leading-relaxed">
-          Our goal is to provide a seamless experience for users who need or prefer alternative ways to interact with their devices.
+          All head movement detection happens locally on your device - no video 
+          data is ever transmitted or stored externally. This ensures your privacy while providing a responsive and secure 
+          hands-free browsing experience.
         </p>
       </div>
 
