@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         'geist-mono': ['"Geist Mono"', 'monospace'],
         'inter': ['Inter', 'system-ui', 'sans-serif'],
+        'space-grotesk': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
       },
       colors: {
         // Map 'gray' to the 'neutral' palette for true monochrome
