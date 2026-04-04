@@ -3,7 +3,7 @@ import React from 'react';
 function HeroSection() {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-[calc(100vh-52px)] pt-12 pb-20 px-4 text-center overflow-hidden">
-      {/* Grid — scoped to this section, fades toward the edges and bottom */}
+      {/* Grid — centered in section, always aligned with content regardless of viewport height */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
@@ -12,17 +12,17 @@ function HeroSection() {
             linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
           `,
           backgroundSize: '28px 28px',
-          maskImage: 'radial-gradient(ellipse 80% 70% at 50% 40%, white 30%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 40%, white 30%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse 75% 55% at 50% 50%, white 20%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 75% 55% at 50% 50%, white 20%, transparent 100%)',
         }}
       />
 
-      {/* Background orb */}
+      {/* Background orb — centred vertically so it tracks the content on any screen height */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 20%, rgba(124,58,237,0.18) 0%, rgba(79,70,229,0.08) 45%, transparent 70%)',
-          filter: 'blur(1px)',
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.16) 0%, rgba(79,70,229,0.07) 45%, transparent 70%)',
+          filter: 'blur(2px)',
         }}
       />
 
