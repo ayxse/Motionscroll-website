@@ -2,29 +2,32 @@ import React from 'react';
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[calc(100vh-52px)] pt-12 pb-20 px-4 text-center overflow-hidden">
-      {/* Grid — centered in section, always aligned with content regardless of viewport height */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
-          `,
-          backgroundSize: '28px 28px',
-          maskImage: 'radial-gradient(ellipse 75% 55% at 50% 50%, white 20%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 75% 55% at 50% 50%, white 20%, transparent 100%)',
-        }}
-      />
-
-      {/* Background orb — centred vertically so it tracks the content on any screen height */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.16) 0%, rgba(79,70,229,0.07) 45%, transparent 70%)',
-          filter: 'blur(2px)',
-        }}
-      />
+    <section className="relative flex flex-col items-center min-h-[calc(100vh-52px)] pt-20 pb-20 px-4 text-center overflow-hidden">
+      {/* Decorative layer — fixed height anchored to top-0 so it always covers the content
+          no matter how tall the section grows on large/zoomed-out screens */}
+      <div className="absolute top-0 left-0 right-0 h-[540px] pointer-events-none z-0">
+        {/* Grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
+            `,
+            backgroundSize: '28px 28px',
+            maskImage: 'radial-gradient(ellipse 55% 75% at 50% 42%, white 0%, white 25%, rgba(255,255,255,0.6) 50%, transparent 75%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 55% 75% at 50% 42%, white 0%, white 25%, rgba(255,255,255,0.6) 50%, transparent 75%)',
+          }}
+        />
+        {/* Orb */}
+        <div
+          className="absolute inset-0 left-1/2 -translate-x-1/2 w-[900px]"
+          style={{
+            background: 'radial-gradient(ellipse 55% 70% at 50% 35%, rgba(124,58,237,0.28) 0%, rgba(109,40,217,0.14) 40%, rgba(79,70,229,0.05) 65%, transparent 85%)',
+            filter: 'blur(8px)',
+          }}
+        />
+      </div>
 
       {/* Badge pill */}
       <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-violet-500/25 bg-violet-500/10 text-violet-300 text-[13px] font-medium mb-6 select-none">
@@ -50,7 +53,7 @@ function HeroSection() {
       </h1>
 
       {/* Subtitle */}
-      <p className="text-base md:text-lg text-gray-400 mb-8 max-w-sm mx-auto leading-7">
+      <p className="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-7 whitespace-nowrap">
         Head movement detection, powered by your front camera. No hands needed.
       </p>
 
