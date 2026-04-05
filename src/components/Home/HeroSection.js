@@ -2,10 +2,9 @@ import React from 'react';
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center min-h-[calc(100vh-52px)] pt-20 pb-20 px-4 text-center overflow-hidden">
-      {/* Decorative layer — fixed height anchored to top-0 so it always covers the content
-          no matter how tall the section grows on large/zoomed-out screens */}
-      <div className="absolute top-0 left-0 right-0 h-[540px] pointer-events-none z-0">
+    <section className="relative flex flex-col items-center justify-center min-h-[calc(100vh-52px)] py-16 px-4 text-center overflow-hidden">
+      {/* Decorative layer — centered vertically to always track the content */}
+      <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[540px] pointer-events-none z-0">
         {/* Grid */}
         <div
           className="absolute inset-0"
