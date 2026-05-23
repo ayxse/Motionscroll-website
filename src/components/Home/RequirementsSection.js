@@ -28,7 +28,7 @@ function RequirementsSection() {
             <div className="flex flex-col gap-3 md:items-end">
               <a
                 href="https://github.com/ayxse/MotionScroll/releases/tag/v1.0.2"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 bg-[#e5dfd3] text-[#111111] font-medium text-[15px] rounded-lg hover:bg-white transition-all duration-200"
+                className="inline-flex w-full items-center justify-center gap-2 px-6 py-3 bg-[#e5dfd3] text-[#111111] font-medium text-[15px] rounded-lg hover:bg-white transition-all duration-200 sm:w-[220px]"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
                   <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
@@ -38,7 +38,7 @@ function RequirementsSection() {
               </a>
               <Link
                 to="/guide"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 border border-white/15 text-white/75 font-medium text-[15px] rounded-lg hover:border-white/30 hover:text-white transition-all duration-200"
+                className="inline-flex w-full items-center justify-center gap-2 px-6 py-3 border border-white/15 text-white/75 font-medium text-[15px] rounded-lg hover:border-white/30 hover:text-white transition-all duration-200 sm:w-[220px]"
               >
                 View Setup Guide
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">

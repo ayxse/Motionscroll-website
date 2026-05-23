@@ -11,11 +11,11 @@ function HeroSection() {
     <section className="relative overflow-hidden px-4 pt-6 pb-16 md:pt-10">
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="text-center lg:text-left">
-          <p className="mb-4 text-[13px] font-medium uppercase text-[#d6ba73]">
+          <p className="mb-4 text-[11px] font-medium uppercase text-[#d6ba73]">
             Hands-free Android scrolling
           </p>
 
-          <h1 className="mb-6 text-5xl font-normal leading-[1.04] text-[#f1ede4] md:text-6xl lg:text-[68px]">
+          <h1 className="mb-6 text-5xl font-normal leading-[1.04] text-[#f1ede4] md:text-6xl lg:text-[58px]">
             Scroll hands-free with
             <span className="text-[#d6ba73]"> MotionScroll</span>
           </h1>
