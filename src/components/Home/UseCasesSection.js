@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const useCases = [
   {
@@ -56,6 +57,15 @@ const useCases = [
 ];
 
 function UseCasesSection() {
+  const [card1Ref, card1Visible] = useScrollAnimation({ delay: 0, threshold: 0.12 });
+  const [card2Ref, card2Visible] = useScrollAnimation({ delay: 50, threshold: 0.12 });
+  const [card3Ref, card3Visible] = useScrollAnimation({ delay: 100, threshold: 0.12 });
+  const [card4Ref, card4Visible] = useScrollAnimation({ delay: 0, threshold: 0.12 });
+  const [card5Ref, card5Visible] = useScrollAnimation({ delay: 50, threshold: 0.12 });
+  const [card6Ref, card6Visible] = useScrollAnimation({ delay: 100, threshold: 0.12 });
+  const refs = [card1Ref, card2Ref, card3Ref, card4Ref, card5Ref, card6Ref];
+  const visible = [card1Visible, card2Visible, card3Visible, card4Visible, card5Visible, card6Visible];
+
   return (
     <section className="py-16 px-4 border-y border-white/[0.08]">
       <div className="max-w-6xl mx-auto">
@@ -70,12 +80,13 @@ function UseCasesSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
-          {useCases.map((uc) => (
+          {useCases.map((uc, index) => (
             <div
               key={uc.label}
-              className="flex items-center gap-3.5 rounded-lg border border-white/10 bg-white/[0.06] px-5 py-4 transition-all duration-200 hover:bg-white/[0.075] hover:border-white/20"
+              ref={refs[index]}
+              className={`flex items-center gap-3.5 rounded-lg border border-white/10 bg-white/[0.06] px-5 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/[0.085] hover:border-white/20 ${visible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             >
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-[#d6ba73] bg-[#d6ba73]/10 border border-[#d6ba73]/20">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-[#d6ba73] bg-[#d6ba73]/10 border border-[#d6ba73]/20 transition-transform duration-300">
                 {uc.icon}
               </div>
               <span className="text-[#d8d2c8] text-[14.5px] font-medium leading-snug">{uc.label}</span>

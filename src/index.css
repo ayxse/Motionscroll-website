@@ -62,3 +62,39 @@ html, body, #root {
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
 }
+
+@keyframes signal-dot {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.animate-signal-dot {
+  animation: signal-dot 2.8s ease-in-out infinite;
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(214, 186, 115, 0.24);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(214, 186, 115, 0);
+  }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-signal-dot,
+  .animate-soft-pulse,
+  .animate-fade-in-up {
+    animation: none;
+  }
+}

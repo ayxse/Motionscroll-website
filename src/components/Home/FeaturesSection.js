@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const features = [
   {
@@ -34,11 +35,21 @@ const features = [
 ];
 
 function FeaturesSection() {
+  const [introRef, introVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [card1Ref, card1Visible] = useScrollAnimation({ delay: 0 });
+  const [card2Ref, card2Visible] = useScrollAnimation({ delay: 80 });
+  const [card3Ref, card3Visible] = useScrollAnimation({ delay: 160 });
+  const refs = [card1Ref, card2Ref, card3Ref];
+  const visible = [card1Visible, card2Visible, card3Visible];
+
   return (
     <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
-          <div className="lg:sticky lg:top-24">
+          <div
+            ref={introRef}
+            className={`transition-all duration-500 ease-out ${introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+          >
             <p className="text-[13px] font-medium text-[#d6ba73] uppercase mb-3">How it works</p>
             <h2 className="text-3xl md:text-4xl font-normal mb-4 text-white">
               Effortless, hands-free scrolling
@@ -49,13 +60,14 @@ function FeaturesSection() {
           </div>
 
           <div className="grid grid-cols-1 gap-4">
-            {features.map((f) => (
+            {features.map((f, index) => (
               <div
                 key={f.title}
-                className="group rounded-lg border border-white/10 bg-white/[0.06] p-6 transition-all duration-200 ease-out hover:bg-white/[0.075] hover:border-white/20"
+                ref={refs[index]}
+                className={`group rounded-lg border border-white/10 bg-white/[0.06] p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/[0.085] hover:border-white/20 hover:shadow-xl hover:shadow-black/25 ${visible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               >
                 <div className="flex gap-5">
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 text-[#d6ba73] bg-[#d6ba73]/10 border border-[#d6ba73]/20">
+                  <div className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 text-[#d6ba73] bg-[#d6ba73]/10 border border-[#d6ba73]/20 transition-transform duration-300 group-hover:scale-105">
                     {f.icon}
                   </div>
                   <div>

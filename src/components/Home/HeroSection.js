@@ -11,10 +11,9 @@ function HeroSection() {
     <section className="relative overflow-hidden px-4 pt-6 pb-16 md:pt-10">
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="text-center lg:text-left">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-[13px] font-medium text-[#d6ba73] shadow-lg shadow-black/20">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#d6ba73]" />
-            MotionScroll v1.0.2
-          </div>
+          <p className="mb-4 text-[13px] font-medium uppercase text-[#d6ba73]">
+            Hands-free Android scrolling
+          </p>
 
           <h1 className="mb-6 text-5xl font-normal leading-[1.04] text-[#f1ede4] md:text-6xl lg:text-[68px]">
             Scroll hands-free with
@@ -61,7 +60,7 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="relative min-h-[520px] overflow-hidden rounded-lg border border-white/10 bg-[#121212] p-5 shadow-2xl shadow-black/35">
+        <div className="group relative min-h-[520px] overflow-hidden rounded-lg border border-white/10 bg-[#121212] p-5 shadow-2xl shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
           <div className="relative z-10 mx-auto flex min-h-[480px] max-w-[520px] flex-col justify-center gap-4">
             <div className="rounded-lg border border-white/10 bg-[#171717] p-5 shadow-xl shadow-black/25">
               <div className="mb-5 flex items-center justify-between">
@@ -70,7 +69,7 @@ function HeroSection() {
                   <h3 className="mt-2 text-2xl font-normal text-white">Scroll active</h3>
                 </div>
                 <div className="flex h-11 w-20 items-center justify-end rounded-full border border-white/12 bg-white/[0.06] p-1">
-                  <span className="h-9 w-9 rounded-full bg-[#d6ba73]" />
+                  <span className="h-9 w-9 rounded-full bg-[#d6ba73] animate-soft-pulse" />
                 </div>
               </div>
 
@@ -97,11 +96,11 @@ function HeroSection() {
                 <div className="absolute inset-x-8 top-1/2 h-px bg-white/10" />
                 <div className="absolute left-8 right-8 top-1/2 -translate-y-1/2">
                   <div className="relative h-16">
-                    <div className="absolute left-0 top-8 h-2 w-2 rounded-full bg-white/30" />
-                    <div className="absolute left-[22%] top-4 h-2 w-2 rounded-full bg-[#d6ba73]" />
-                    <div className="absolute left-[46%] top-10 h-2 w-2 rounded-full bg-[#8fbfd0]" />
-                    <div className="absolute left-[70%] top-6 h-2 w-2 rounded-full bg-[#e5dfd3]" />
-                    <div className="absolute right-0 top-8 h-2 w-2 rounded-full bg-white/30" />
+                    <div className="animate-signal-dot absolute left-0 top-8 h-2 w-2 rounded-full bg-white/30" />
+                    <div className="animate-signal-dot absolute left-[22%] top-4 h-2 w-2 rounded-full bg-[#d6ba73]" style={{ animationDelay: '0.25s' }} />
+                    <div className="animate-signal-dot absolute left-[46%] top-10 h-2 w-2 rounded-full bg-[#8fbfd0]" style={{ animationDelay: '0.5s' }} />
+                    <div className="animate-signal-dot absolute left-[70%] top-6 h-2 w-2 rounded-full bg-[#e5dfd3]" style={{ animationDelay: '0.75s' }} />
+                    <div className="animate-signal-dot absolute right-0 top-8 h-2 w-2 rounded-full bg-white/30" style={{ animationDelay: '1s' }} />
                   </div>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white/38">
