@@ -15,14 +15,14 @@ function HeroSection() {
             Hands-free Android scrolling
           </p>
 
-          <h1 className="mb-6 text-5xl font-normal leading-[1.04] text-[#f1ede4] md:text-6xl lg:text-[58px]">
+          <h1 className="mb-6 text-5xl font-normal leading-[1.04] text-[#f1ede4] md:text-6xl lg:text-[50px]">
             Scroll hands-free with
             <span className="text-[#d6ba73]"> MotionScroll</span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-[#b8b2a8] md:text-lg lg:mx-0">
-            Turn subtle head movement into smooth Android scrolling. Built for reading, cooking, studying, and every moment your hands are busy.
-          </p>
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-[#b8b2a8] md:text-lg lg:mx-0">
+              Turn subtle head movement into smooth Android scrolling. Built for reading, cooking, studying, and every moment your hands are busy.
+            </p>
 
           <div className="mb-9 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
             <a
