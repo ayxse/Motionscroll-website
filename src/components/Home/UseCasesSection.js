@@ -1,5 +1,4 @@
 import React from 'react';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const useCases = [
   {
@@ -57,47 +56,29 @@ const useCases = [
 ];
 
 function UseCasesSection() {
-  const observerOptions = { threshold: 0.08 };
-  const [sec1Ref, isSec1Visible] = useScrollAnimation(observerOptions);
-  const [sec2Ref, isSec2Visible] = useScrollAnimation(observerOptions);
-  const [sec3Ref, isSec3Visible] = useScrollAnimation(observerOptions);
-  const [sec4Ref, isSec4Visible] = useScrollAnimation(observerOptions);
-  const [sec5Ref, isSec5Visible] = useScrollAnimation(observerOptions);
-  const [sec6Ref, isSec6Visible] = useScrollAnimation(observerOptions);
-
-  const refs = [sec1Ref, sec2Ref, sec3Ref, sec4Ref, sec5Ref, sec6Ref];
-  const visibles = [isSec1Visible, isSec2Visible, isSec3Visible, isSec4Visible, isSec5Visible, isSec6Visible];
-
   return (
-    <section className="py-12 px-4">
+    <section className="py-16 px-4 border-y border-white/[0.08]">
       <div className="max-w-6xl mx-auto">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent mb-12" />
-
-        <div className="text-center mb-10">
-          <p className="text-[13px] font-semibold tracking-widest text-violet-400/80 uppercase mb-3">Use cases</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">
-            Built for the moments your<br className="hidden md:block" /> hands are busy
+        <div className="text-center mb-10 mx-auto max-w-2xl">
+          <p className="text-[13px] font-medium text-[#d6ba73] uppercase mb-3">Use cases</p>
+          <h2 className="text-3xl md:text-4xl font-normal mb-4 text-white">
+            Built for busy hands
           </h2>
-          <p className="text-gray-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-white/58 leading-7">
             Wherever scrolling is awkward or impossible, MotionScroll steps in.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto">
-          {useCases.map((uc, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
+          {useCases.map((uc) => (
             <div
               key={uc.label}
-              ref={refs[i]}
-              className={`flex items-center gap-3.5 rounded-xl border border-white/[0.07] bg-white/[0.03] px-5 py-4
-                hover:bg-white/[0.055] hover:border-violet-500/20 transition-all duration-300
-                ${visibles[i] ? 'opacity-100 translate-y-0' : 'scroll-animate-init'}`}
-              style={{ transitionDelay: `${(i % 3) * 60}ms` }}
+              className="flex items-center gap-3.5 rounded-lg border border-white/10 bg-white/[0.06] px-5 py-4 transition-all duration-200 hover:bg-white/[0.075] hover:border-white/20"
             >
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-violet-400"
-                style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.18)' }}>
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-[#d6ba73] bg-[#d6ba73]/10 border border-[#d6ba73]/20">
                 {uc.icon}
               </div>
-              <span className="text-gray-200 text-[14.5px] font-medium leading-snug">{uc.label}</span>
+              <span className="text-[#d8d2c8] text-[14.5px] font-medium leading-snug">{uc.label}</span>
             </div>
           ))}
         </div>

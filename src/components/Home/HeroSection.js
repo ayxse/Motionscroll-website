@@ -1,102 +1,132 @@
 import React from 'react';
+const trustItems = [
+  'On-device processing',
+  'No cloud upload',
+  'Front camera control',
+  'Quick overlay toggle',
+];
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[calc(100vh-52px)] py-16 px-4 text-center overflow-hidden">
-      {/* Decorative layer — centered vertically to always track the content */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[540px] pointer-events-none z-0">
-        {/* Grid */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
-            `,
-            backgroundSize: '28px 28px',
-            maskImage: 'radial-gradient(ellipse 55% 75% at 50% 42%, white 0%, white 25%, rgba(255,255,255,0.6) 50%, transparent 75%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 55% 75% at 50% 42%, white 0%, white 25%, rgba(255,255,255,0.6) 50%, transparent 75%)',
-          }}
-        />
-        {/* Orb */}
-        <div
-          className="absolute inset-0 left-1/2 -translate-x-1/2 w-[900px]"
-          style={{
-            background: 'radial-gradient(ellipse 55% 70% at 50% 35%, rgba(124,58,237,0.28) 0%, rgba(109,40,217,0.14) 40%, rgba(79,70,229,0.05) 65%, transparent 85%)',
-            filter: 'blur(8px)',
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden px-4 pt-6 pb-16 md:pt-10">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="text-center lg:text-left">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-[13px] font-medium text-[#d6ba73] shadow-lg shadow-black/20">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#d6ba73]" />
+            MotionScroll v1.0.2
+          </div>
 
-      {/* Badge pill */}
-      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-violet-500/25 bg-violet-500/10 text-violet-300 text-[13px] font-medium mb-6 select-none">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        Free &amp; Open Source · v1.0.2
-      </div>
+          <h1 className="mb-6 text-5xl font-normal leading-[1.04] text-[#f1ede4] md:text-6xl lg:text-[68px]">
+            Scroll hands-free with
+            <span className="text-[#d6ba73]"> MotionScroll</span>
+          </h1>
 
-      {/* Headline */}
-      <h1 className="text-5xl md:text-6xl lg:text-[68px] font-bold mb-6 tracking-tight leading-[1.06]">
-        <span
-          className="bg-clip-text text-transparent"
-          style={{ backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #c4b5fd 100%)' }}
-        >
-          Scroll hands-free,
-        </span>
-        <br />
-        <span
-          className="bg-clip-text text-transparent"
-          style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #c084fc 100%)' }}
-        >
-          just move your head.
-        </span>
-      </h1>
+          <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-[#b8b2a8] md:text-lg lg:mx-0">
+            Turn subtle head movement into smooth Android scrolling. Built for reading, cooking, studying, and every moment your hands are busy.
+          </p>
 
-      {/* Subtitle */}
-      <p className="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-7 whitespace-nowrap">
-        Head movement detection, powered by your front camera. No hands needed.
-      </p>
+          <div className="mb-9 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
+            <a
+              href="https://github.com/ayxse/MotionScroll/releases/tag/v1.0.2"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#e5dfd3] px-6 py-3 text-[15px] font-medium text-[#111111] transition-all duration-200 hover:bg-white sm:w-auto"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
+                <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z" />
+              </svg>
+              Download APK
+            </a>
+            <a
+              href="https://github.com/ayxse/MotionScroll"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/12 bg-white/[0.07] px-6 py-3 text-[15px] font-medium text-white transition-all duration-200 hover:bg-white/[0.11] sm:w-auto"
+            >
+              View source
+              <span className="text-white/45">↗</span>
+            </a>
+          </div>
 
-      {/* CTA buttons */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
-        <a
-          href="https://github.com/ayxse/MotionScroll/releases/tag/v1.0.2"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-violet-500 hover:from-violet-500 hover:to-violet-400 text-white font-semibold text-[15px] rounded-xl transition-all duration-200"
-          style={{ boxShadow: '0 0 28px rgba(139,92,246,0.45), 0 2px 8px rgba(0,0,0,0.3)' }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-            <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
-            <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z" />
-          </svg>
-          Download for Android
-        </a>
-        <a
-          href="https://github.com/ayxse/MotionScroll"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-white/12 text-gray-300 font-medium text-[15px] rounded-xl hover:border-white/25 hover:text-white transition-all duration-200"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-            <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.166 6.839 9.489.5.09.682-.218.682-.484 0-.236-.009-.866-.014-1.699-2.782.602-3.369-1.34-3.369-1.34-.455-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.071 1.532 1.03 1.532 1.03.891 1.529 2.341 1.089 2.91.833.091-.647.349-1.086.635-1.337-2.22-.252-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.682-.103-.254-.447-1.27.097-2.646 0 0 .84-.269 2.75 1.025A9.548 9.548 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.748-1.025 2.748-1.025.546 1.376.202 2.392.1 2.646.64.701 1.026 1.593 1.026 2.682 0 3.842-2.338 4.687-4.566 4.935.359.307.679.917.679 1.852 0 1.336-.012 2.415-.012 2.741 0 .269.18.579.688.481A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
-          </svg>
-          View on GitHub
-        </a>
-      </div>
+          <div className="divide-y divide-white/10 border-y border-white/10 text-left">
+            {trustItems.map((label) => (
+              <div key={label} className="flex items-center gap-3 py-3 text-sm text-white/72">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#d6ba73]/12 text-[#d6ba73]">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                  </svg>
+                </span>
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
 
-      {/* Trust indicators */}
-      <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[13px] text-gray-500">
-        {[
-          { icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', label: 'Android 8.0+' },
-          { icon: 'M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z', label: 'Front camera required' },
-          { icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: '100% on-device processing' },
-          { icon: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z', label: 'Private by design' },
-        ].map(({ icon, label }) => (
-          <span key={label} className="flex items-center gap-1.5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3.5 h-3.5 text-violet-400/70">
-              <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
-            </svg>
-            {label}
-          </span>
-        ))}
+        <div className="relative min-h-[520px] overflow-hidden rounded-lg border border-white/10 bg-[#121212] p-5 shadow-2xl shadow-black/35">
+          <div className="relative z-10 mx-auto flex min-h-[480px] max-w-[520px] flex-col justify-center gap-4">
+            <div className="rounded-lg border border-white/10 bg-[#171717] p-5 shadow-xl shadow-black/25">
+              <div className="mb-5 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-medium uppercase text-[#d6ba73]">Motion engine</p>
+                  <h3 className="mt-2 text-2xl font-normal text-white">Scroll active</h3>
+                </div>
+                <div className="flex h-11 w-20 items-center justify-end rounded-full border border-white/12 bg-white/[0.06] p-1">
+                  <span className="h-9 w-9 rounded-full bg-[#d6ba73]" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-lg border border-white/10 bg-white/[0.06] p-4">
+                  <p className="text-[11px] font-medium uppercase text-white/45">Head angle</p>
+                  <p className="mt-2 text-2xl font-medium text-white">-12°</p>
+                  <p className="mt-1 text-xs text-[#d6ba73]">Tilt up detected</p>
+                </div>
+                <div className="rounded-lg border border-white/10 bg-white/[0.06] p-4">
+                  <p className="text-[11px] font-medium uppercase text-white/45">Processing</p>
+                  <p className="mt-2 text-2xl font-medium text-white">Local</p>
+                  <p className="mt-1 text-xs text-[#8fbfd0]">No video upload</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-lg border border-white/10 bg-[#171717] p-5">
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-sm font-medium text-white">Scroll response</span>
+                <span className="rounded-full bg-white/[0.07] px-2.5 py-1 text-xs font-medium text-[#d6ba73]">Smooth</span>
+              </div>
+              <div className="relative h-28 overflow-hidden rounded-lg border border-white/10 bg-[#101010]">
+                <div className="absolute inset-x-8 top-1/2 h-px bg-white/10" />
+                <div className="absolute left-8 right-8 top-1/2 -translate-y-1/2">
+                  <div className="relative h-16">
+                    <div className="absolute left-0 top-8 h-2 w-2 rounded-full bg-white/30" />
+                    <div className="absolute left-[22%] top-4 h-2 w-2 rounded-full bg-[#d6ba73]" />
+                    <div className="absolute left-[46%] top-10 h-2 w-2 rounded-full bg-[#8fbfd0]" />
+                    <div className="absolute left-[70%] top-6 h-2 w-2 rounded-full bg-[#e5dfd3]" />
+                    <div className="absolute right-0 top-8 h-2 w-2 rounded-full bg-white/30" />
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white/38">
+                  <span>Tilt up</span>
+                  <span>Neutral</span>
+                  <span>Tilt down</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                ['Camera', 'On'],
+                ['Overlay', 'Ready'],
+                ['Data', 'Private'],
+                ['Android', '8.0+'],
+              ].map(([label, value]) => (
+                <div key={label} className="rounded-lg border border-white/10 bg-white/[0.06] px-4 py-3">
+                  <p className="text-[11px] font-medium uppercase text-white/38">{label}</p>
+                  <p className="mt-1 text-sm font-medium text-white">{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

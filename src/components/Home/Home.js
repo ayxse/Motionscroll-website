@@ -6,7 +6,7 @@ import RequirementsSection from './RequirementsSection';
 
 function Home() {
   return (
-    <main className="w-full max-w-6xl px-4 relative z-10">
+    <main className="w-full relative z-10">
       <HeroSection />
       <FeaturesSection />
       <UseCasesSection />

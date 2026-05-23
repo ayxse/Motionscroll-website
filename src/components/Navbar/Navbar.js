@@ -24,13 +24,13 @@ function Navbar() {
               to={to}
               className={`relative text-sm font-medium transition-colors duration-150 px-3 py-1.5 rounded-md
                 ${isActive(to)
-                  ? 'text-white'
-                  : 'text-gray-500 hover:text-gray-200 hover:bg-white/5'
+                  ? 'text-white bg-white/10 shadow-sm'
+                  : 'text-white/60 hover:text-white hover:bg-white/[0.08]'
                 }`}
             >
               {label}
               {isActive(to) && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3.5 h-px bg-violet-400/70 rounded-full" />
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3.5 h-px bg-[#d6ba73] rounded-full" />
               )}
             </Link>
           </li>
@@ -40,8 +40,8 @@ function Navbar() {
             to="/download"
             className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium rounded-lg border transition-all duration-150
               ${isActive('/download')
-                ? 'bg-white/12 text-white border-white/25'
-                : 'bg-transparent text-gray-300 border-white/15 hover:bg-white/8 hover:text-white hover:border-white/25'
+                ? 'bg-[#e5dfd3] text-[#111111] border-[#e5dfd3]'
+                : 'bg-white/[0.08] text-white border-white/12 hover:bg-white/12 hover:border-white/20'
               }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
@@ -57,13 +57,13 @@ function Navbar() {
       <div className="md:hidden flex items-center gap-2">
         <Link
           to="/download"
-          className="inline-flex items-center px-3 py-1.5 bg-transparent text-gray-300 hover:text-white text-xs font-medium rounded-lg border border-white/15 hover:border-white/25 hover:bg-white/8 transition-all duration-150"
+          className="inline-flex items-center px-3 py-1.5 bg-[#e5dfd3] text-[#111111] text-xs font-medium rounded-lg border border-[#e5dfd3] transition-all duration-150"
         >
           Download
         </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-gray-400 hover:text-white p-1.5 rounded-md hover:bg-white/8 transition-colors"
+          className="text-white/65 hover:text-white p-1.5 rounded-md hover:bg-white/10 transition-colors"
           aria-label="Toggle menu"
         >
           {mobileOpen ? (
@@ -80,7 +80,7 @@ function Navbar() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="absolute top-full right-0 mt-2 w-44 bg-[#0f0f0f] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/60 py-1.5 z-50 md:hidden">
+        <div className="absolute top-full right-0 mt-2 w-44 bg-[#101112] border border-white/10 rounded-lg shadow-xl shadow-black/40 py-1.5 z-50 md:hidden">
           {navLinks.map(({ to, label }) => (
             <Link
               key={to}
@@ -88,13 +88,13 @@ function Navbar() {
               onClick={() => setMobileOpen(false)}
               className={`flex items-center justify-between px-4 py-2.5 text-sm transition-colors
                 ${isActive(to)
-                  ? 'text-white bg-white/5'
-                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  ? 'text-white bg-white/10'
+                  : 'text-white/60 hover:text-white hover:bg-white/[0.08]'
                 }`}
             >
               {label}
               {isActive(to) && (
-                <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#d6ba73]" />
               )}
             </Link>
           ))}

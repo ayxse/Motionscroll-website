@@ -10,7 +10,7 @@ export const useImageFadeIn = () => {
 
   const getImageClasses = useCallback((imageSrc, additionalClasses = '') => {
     const isLoaded = loadedImages.has(imageSrc);
-    const baseClasses = `transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`;
+    const baseClasses = `transition-all duration-300 ease-out ${isLoaded ? 'opacity-100 scale-100' : 'opacity-100 scale-100'}`;
     return `${baseClasses} ${additionalClasses}`.trim();
   }, [loadedImages]);
 

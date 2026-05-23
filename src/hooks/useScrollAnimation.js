@@ -10,6 +10,11 @@ function useScrollAnimation(options = {}) {
 
     const { delay, ...intersectionOptions } = options;
 
+    if (typeof window.IntersectionObserver === 'undefined') {
+      const fallbackTimer = setTimeout(() => setIsVisible(true), delay ?? 0);
+      return () => clearTimeout(fallbackTimer);
+    }
+
     // Require a meaningful portion of the element to be well inside the viewport
     // before triggering — prevents cards animating while still off-screen below
     const finalOptions = {

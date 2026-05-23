@@ -99,30 +99,28 @@ function Guide() {
   }, [expandedImageIndex, goToNextImage, goToPrevImage]);
 
   const imgClass = (src) =>
-    getImageClasses(src, 'w-auto h-48 rounded-lg cursor-pointer transition-all duration-200 hover:opacity-75 ring-1 ring-white/10 hover:ring-white/25');
+    getImageClasses(src, 'w-auto h-48 rounded-lg cursor-pointer transition-all duration-200 hover:opacity-80 ring-1 ring-white/10 hover:ring-white/25');
 
   const setupImgClass = (src) =>
-    getImageClasses(src, 'w-24 h-auto md:w-28 rounded-lg cursor-pointer transition-all duration-200 hover:opacity-75 ring-1 ring-white/10 hover:ring-white/25 flex-shrink-0');
+    getImageClasses(src, 'w-24 h-auto md:w-28 rounded-lg cursor-pointer transition-all duration-200 hover:opacity-80 ring-1 ring-white/10 hover:ring-white/25 flex-shrink-0');
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-20 px-4">
+    <div className="w-full max-w-5xl mx-auto py-20 px-4 relative z-10">
       {/* Header */}
       <div className="text-center mb-14">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-violet-500/25 bg-violet-500/10 text-violet-300 text-[13px] font-medium mb-6 select-none">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/12 bg-white/[0.06] text-[#d6ba73] text-[13px] font-medium mb-6 select-none shadow-sm">
           Step-by-step setup
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Installation Guide</h1>
-        <p className="text-gray-400 max-w-md mx-auto leading-relaxed">
+        <h1 className="text-4xl md:text-5xl font-normal text-white mb-4">Installation Guide</h1>
+        <p className="text-white/58 max-w-md mx-auto leading-7">
           Follow both guides in order — Permissions first, then Setup.
         </p>
       </div>
 
       {/* ── Permissions section ── */}
-      <div className="mb-10 rounded-2xl border border-amber-500/20 overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, rgba(217,119,6,0.07) 0%, rgba(3,3,3,0.5) 60%)' }}>
-        <div className="px-7 py-6 border-b border-amber-500/15 flex items-start gap-3">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
-            style={{ background: 'rgba(217,119,6,0.15)', border: '1px solid rgba(217,119,6,0.25)' }}>
+      <div className="mb-10 rounded-lg border border-[#9d8968]/25 overflow-hidden bg-[#9d8968]/10">
+        <div className="px-7 py-6 border-b border-[#9d8968]/20 flex items-start gap-3">
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-[#9d8968]/10 border border-[#9d8968]/25">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-amber-400">
               <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
               <line x1="12" y1="9" x2="12" y2="13" />
@@ -130,8 +128,8 @@ function Guide() {
             </svg>
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-white mb-1">Step 0 — Allow Restricted Settings</h2>
-            <p className="text-[14px] text-amber-200/70 leading-relaxed">
+            <h2 className="text-lg font-normal text-white mb-1">Step 0 — Allow Restricted Settings</h2>
+            <p className="text-[14px] text-[#d8caa7]/80 leading-7">
               Due to Android security restrictions, you must manually allow restricted settings before MotionScroll can work. Complete these steps before the Setup Guide.
             </p>
           </div>
@@ -139,12 +137,12 @@ function Guide() {
 
         <div className="p-7 grid grid-cols-1 gap-5">
           {/* Perm step 1 */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6">
+          <div className="rounded-lg border border-[#9d8968]/20 bg-black/25 p-6">
             <div className="flex items-center gap-2.5 mb-3">
-              <span className="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold flex items-center justify-center flex-shrink-0">1</span>
-              <h3 className="text-[15px] font-semibold text-white">Check Accessibility Settings</h3>
+              <span className="w-6 h-6 rounded-full bg-[#9d8968]/15 border border-[#9d8968]/30 text-[#d8caa7] text-xs font-medium flex items-center justify-center flex-shrink-0">1</span>
+              <h3 className="text-[15px] font-normal text-white">Check Accessibility Settings</h3>
             </div>
-            <p className="text-gray-400 text-[14px] mb-5 leading-relaxed">
+            <p className="text-white/62 text-[14px] mb-5 leading-7">
               After installing and opening MotionScroll, go to your phone's Accessibility settings and look for "Installed apps" or "Downloaded apps". MotionScroll will appear greyed out.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -159,12 +157,12 @@ function Guide() {
           </div>
 
           {/* Perm step 2 */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6">
+          <div className="rounded-lg border border-[#9d8968]/20 bg-black/25 p-6">
             <div className="flex items-center gap-2.5 mb-3">
-              <span className="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold flex items-center justify-center flex-shrink-0">2</span>
-              <h3 className="text-[15px] font-semibold text-white">Locate MotionScroll in Settings</h3>
+              <span className="w-6 h-6 rounded-full bg-[#9d8968]/15 border border-[#9d8968]/30 text-[#d8caa7] text-xs font-medium flex items-center justify-center flex-shrink-0">2</span>
+              <h3 className="text-[15px] font-normal text-white">Locate MotionScroll in Settings</h3>
             </div>
-            <p className="text-gray-400 text-[14px] mb-5 leading-relaxed">
+            <p className="text-white/62 text-[14px] mb-5 leading-7">
               Go to your device Settings → Apps / Applications → find and select MotionScroll from the list.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -179,12 +177,12 @@ function Guide() {
           </div>
 
           {/* Perm step 3 */}
-          <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6">
+          <div className="rounded-lg border border-[#9d8968]/20 bg-black/25 p-6">
             <div className="flex items-center gap-2.5 mb-3">
-              <span className="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold flex items-center justify-center flex-shrink-0">3</span>
-              <h3 className="text-[15px] font-semibold text-white">Allow Restricted Settings</h3>
+              <span className="w-6 h-6 rounded-full bg-[#9d8968]/15 border border-[#9d8968]/30 text-[#d8caa7] text-xs font-medium flex items-center justify-center flex-shrink-0">3</span>
+              <h3 className="text-[15px] font-normal text-white">Allow Restricted Settings</h3>
             </div>
-            <p className="text-gray-400 text-[14px] mb-5 leading-relaxed">
+            <p className="text-white/62 text-[14px] mb-5 leading-7">
               On the MotionScroll app info page, tap the three dots (⋮) in the top-right corner and select "Allow restricted settings".
             </p>
             <div className="flex flex-wrap gap-3">
@@ -196,7 +194,7 @@ function Guide() {
                 />
               ))}
             </div>
-            <div className="flex items-center gap-2 mt-5 text-[13.5px] text-emerald-400">
+            <div className="flex items-center gap-2 mt-5 text-[13.5px] text-[#d6ba73]">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 flex-shrink-0">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
               </svg>
@@ -209,18 +207,17 @@ function Guide() {
       {/* ── Setup Guide section ── */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center text-violet-400 flex-shrink-0"
-            style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)' }}>
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center text-[#d6ba73] flex-shrink-0 bg-[#d6ba73]/10 border border-[#d6ba73]/20">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
               <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-white">Setup Guide</h2>
+          <h2 className="text-xl font-normal text-white">Setup Guide</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
           {setupSteps.map((step, i) => (
-            <div key={i} className="rounded-xl border border-white/[0.07] bg-white/[0.03] p-5 flex items-start gap-4 hover:bg-white/[0.05] hover:border-white/[0.1] transition-all duration-200">
+            <div key={i} className="rounded-lg border border-white/10 bg-white/[0.06] p-5 flex items-start gap-4 hover:bg-white/[0.075] transition-all duration-200">
               <img
                 src={step.img}
                 alt={`Step ${i + 1}: ${step.title}`}
@@ -230,14 +227,14 @@ function Guide() {
               />
               <div className="min-w-0">
                 <div className="flex items-center gap-2 mb-1.5">
-                  <span className="text-[11px] font-semibold text-violet-400/70 uppercase tracking-wider">Step {i + 1}</span>
+                  <span className="text-[11px] font-medium text-[#d6ba73] uppercase">Step {i + 1}</span>
                 </div>
-                <h4 className="text-[15px] font-semibold text-white mb-1.5">{step.title}</h4>
-                {step.desc && <p className="text-gray-400 text-[13.5px] leading-relaxed">{step.desc}</p>}
+                <h4 className="text-[15px] font-normal text-white mb-1.5">{step.title}</h4>
+                {step.desc && <p className="text-white/58 text-[13.5px] leading-6">{step.desc}</p>}
                 {step.warning && (
-                  <div className="rounded-lg border border-amber-500/20 bg-amber-500/8 px-3 py-2.5 mt-1">
-                    <p className="text-[13px] text-amber-300/90 leading-relaxed">
-                      <span className="font-semibold">Important: </span>{step.warning}
+                  <div className="rounded-lg border border-[#9d8968]/25 bg-[#9d8968]/10 px-3 py-2.5 mt-1">
+                    <p className="text-[13px] text-[#d8caa7]/85 leading-6">
+                      <span className="font-medium">Important: </span>{step.warning}
                     </p>
                   </div>
                 )}
@@ -247,15 +244,14 @@ function Guide() {
         </div>
 
         {/* Overlay tip */}
-        <div className="rounded-xl border border-white/[0.07] bg-white/[0.03] p-6">
+        <div className="rounded-lg border border-white/10 bg-white/[0.06] p-6">
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-violet-400 flex-shrink-0"
-              style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.2)' }}>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-[#d6ba73] flex-shrink-0 bg-[#d6ba73]/10 border border-[#d6ba73]/20">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
                 <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
             </div>
-            <h3 className="text-[15px] font-semibold text-white">Using the Overlay Shortcut</h3>
+            <h3 className="text-[15px] font-normal text-white">Using the Overlay Shortcut</h3>
           </div>
           <ul className="space-y-2">
             {[
@@ -264,8 +260,8 @@ function Guide() {
               'Prevents getting stuck in auto-scroll mode',
               'Makes the overall experience smoother and more accessible',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-[14px] text-gray-400">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 text-violet-400/60 flex-shrink-0 mt-0.5">
+              <li key={item} className="flex items-start gap-2.5 text-[14px] text-white/58">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 text-[#d6ba73] flex-shrink-0 mt-0.5">
                   <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                 </svg>
                 {item}
