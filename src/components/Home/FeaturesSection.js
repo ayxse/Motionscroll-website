@@ -1,84 +1,62 @@
 import React from 'react';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+import Reveal from '../ui/Reveal';
+import SectionHeading from '../ui/SectionHeading';
+import { ArrowUpDownIcon, LayersIcon, ShieldIcon, SlidersIcon, TimerIcon, ToggleIcon } from '../ui/Icons';
 
 const features = [
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-        <circle cx="12" cy="12" r="3" />
-      </svg>
-    ),
-    title: 'Head-motion scrolling',
-    desc: 'Tilt your head up or down to scroll in any direction. The app continuously reads your head angle and translates it to smooth, natural scrolling.',
+    icon: ArrowUpDownIcon,
+    title: 'Tilt to scroll',
+    desc: 'Look down to scroll down, look up to scroll up. Small, natural head movements are all it takes.',
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
-        <path d="M6 10a6 6 0 0 0 12 0" />
-        <line x1="12" y1="16" x2="12" y2="22" />
-      </svg>
-    ),
-    title: 'Responsive face tracking',
-    desc: 'Advanced face-detection runs entirely on your device, adapting to different lighting and angles for responsive, low-latency control.',
+    icon: LayersIcon,
+    title: 'Works across apps',
+    desc: 'MotionScroll runs as an accessibility service, so it works system-wide in most apps that scroll.',
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-    title: 'Privacy first',
-    desc: 'All processing happens locally on your device. Camera data never leaves your phone — no cloud, no storage, no tracking.',
+    icon: SlidersIcon,
+    title: 'Three scroll modes',
+    desc: 'Scroll continuously, skip a set distance at a time, or add a delay between each scroll.',
+  },
+  {
+    icon: TimerIcon,
+    title: 'Tuned to you',
+    desc: 'Adjust the skip distance and cooldown until scrolling feels just right.',
+  },
+  {
+    icon: ToggleIcon,
+    title: 'One-tap overlay',
+    desc: 'A floating shortcut switches MotionScroll on or off without opening the app.',
+  },
+  {
+    icon: ShieldIcon,
+    title: 'Private by design',
+    desc: 'Face detection runs entirely on your phone. Camera data never leaves the device.',
   },
 ];
 
 function FeaturesSection() {
-  const [introRef, introVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [card1Ref, card1Visible] = useScrollAnimation({ delay: 0 });
-  const [card2Ref, card2Visible] = useScrollAnimation({ delay: 80 });
-  const [card3Ref, card3Visible] = useScrollAnimation({ delay: 160 });
-  const refs = [card1Ref, card2Ref, card3Ref];
-  const visible = [card1Visible, card2Visible, card3Visible];
-
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
-          <div
-            ref={introRef}
-            className={`transition-all duration-500 ease-out ${introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-          >
-            <p className="text-[13px] font-medium text-[#d6ba73] uppercase mb-3">How it works</p>
-            <h2 className="text-3xl md:text-4xl font-normal mb-4 text-white">
-              Effortless, hands-free scrolling
-            </h2>
-            <p className="text-white/58 leading-7 max-w-md">
-              Your phone reads head angle from the front camera, translates that motion into scroll actions, and keeps the signal local.
-            </p>
-          </div>
+    <section className="px-5 py-20 sm:px-6 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          eyebrow="Features"
+          title="Small movements. Smooth scrolling."
+          description="MotionScroll reads your head angle from the front camera and turns it into scroll gestures, in real time, right on your phone."
+        />
 
-          <div className="grid grid-cols-1 gap-4">
-            {features.map((f, index) => (
-              <div
-                key={f.title}
-                ref={refs[index]}
-                className={`group rounded-lg border border-white/10 bg-white/[0.06] p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/[0.085] hover:border-white/20 hover:shadow-xl hover:shadow-black/25 ${visible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-              >
-                <div className="flex gap-5">
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 text-[#d6ba73] bg-[#d6ba73]/10 border border-[#d6ba73]/20 transition-transform duration-300 group-hover:scale-105">
-                    {f.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-normal mb-2 text-white">{f.title}</h3>
-                    <p className="text-white/58 text-[14.5px] leading-7">{f.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Reveal className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          {features.map(({ icon: FeatureIcon, title, desc }) => (
+            <div key={title} className="bg-surface p-7 md:p-8">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-accent">
+                <FeatureIcon />
+              </span>
+              <h3 className="mt-5 text-[17px] font-semibold tracking-tight text-ink">{title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{desc}</p>
+            </div>
+          ))}
+        </Reveal>
       </div>
     </section>
   );

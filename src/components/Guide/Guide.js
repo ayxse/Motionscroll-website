@@ -1,5 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useImageFadeIn } from '../../hooks/useImageFadeIn';
+import React, { useState } from 'react';
+import Button from '../ui/Button';
+import Reveal from '../ui/Reveal';
+import SectionHeading from '../ui/SectionHeading';
+import Lightbox from './Lightbox';
+import { AlertIcon, ArrowRightIcon, CheckIcon, ExpandIcon, GitHubIcon, ToggleIcon } from '../ui/Icons';
+import { ISSUES_URL } from '../../config';
 import step1Img from '../../images/tutorial/1.png';
 import step2Img from '../../images/tutorial/2.png';
 import step3Img from '../../images/tutorial/3.png';
@@ -16,309 +21,241 @@ import perm11 from '../../images/permissions/11.png';
 import perm12 from '../../images/permissions/12.png';
 import perm13 from '../../images/permissions/13.png';
 
-const permStep1Images = [perm7, perm71, perm8];
-const permStep2Images = [perm9, perm10, perm101, perm11];
-const permStep3Images = [perm12, perm13];
-const allPermissionSets = [permStep1Images, permStep2Images, permStep3Images];
-const setupImages = [step1Img, step2Img, step3Img, step4Img, step5Img, step6Img];
-
-const setupSteps = [
+const parts = [
   {
-    img: step1Img,
-    title: 'Find Accessibility Services',
-    desc: "When you first load the app, navigate to your device's Accessibility settings and select \"Accessibility Services\".",
+    id: 'restricted-settings',
+    label: 'Part 1',
+    title: 'Allow restricted settings',
+    intro:
+      'Android blocks accessibility access for apps installed outside the Play Store. Unlock it first. You only need to do this once.',
+    steps: [
+      {
+        title: 'Check Accessibility settings',
+        desc: 'After installing and opening MotionScroll, go to your phone’s Accessibility settings and look for “Installed apps” or “Downloaded apps”. MotionScroll will appear greyed out.',
+        images: [perm7, perm71, perm8],
+      },
+      {
+        title: 'Find MotionScroll in your apps',
+        desc: 'Go to Settings → Apps, then find and select MotionScroll from the list.',
+        images: [perm9, perm10, perm101, perm11],
+      },
+      {
+        title: 'Allow restricted settings',
+        desc: 'On the MotionScroll app info page, tap the three-dot menu (⋮) in the top-right corner and select “Allow restricted settings”.',
+        images: [perm12, perm13],
+      },
+    ],
   },
   {
-    img: step2Img,
-    title: 'Locate MotionScroll',
-    desc: "In your device's Accessibility settings, find and select \"MotionScroll\" from the list of services.",
-  },
-  {
-    img: step3Img,
-    title: 'Activate Service',
-    desc: 'Enable the accessibility service for MotionScroll.',
-  },
-  {
-    img: step4Img,
-    title: 'Grant Permissions',
-    desc: 'Press "Allow" to grant MotionScroll full control of the device to control the screen and perform actions.',
-  },
-  {
-    img: step5Img,
-    title: 'Enable Overlay Shortcut',
-    desc: null,
-    warning: 'Make sure to enable the "Overlay Shortcut" option. This creates a floating button for quick toggling.',
-  },
-  {
-    img: step6Img,
-    title: 'Enable Camera',
-    desc: 'Enable the camera slider within the app to start face tracking and control your screen.',
+    id: 'setup',
+    label: 'Part 2',
+    title: 'Turn on MotionScroll',
+    intro: 'Enable the accessibility service and give MotionScroll what it needs to scroll for you.',
+    steps: [
+      {
+        title: 'Open Accessibility Services',
+        desc: 'In the MotionScroll app, tap “Accessibility Services” to jump to your device’s accessibility settings.',
+        images: [step1Img],
+      },
+      {
+        title: 'Select MotionScroll',
+        desc: 'Find and select MotionScroll in the list of services.',
+        images: [step2Img],
+      },
+      {
+        title: 'Activate the service',
+        desc: 'Switch on “Use MotionScroll” to activate the accessibility service.',
+        images: [step3Img],
+      },
+      {
+        title: 'Grant permission',
+        desc: 'Tap “Allow” to give MotionScroll control of the screen so it can perform scroll actions.',
+        images: [step4Img],
+      },
+      {
+        title: 'Enable the overlay shortcut',
+        warning: 'Make sure “MotionScroll shortcut” is switched on. It adds a floating button for quickly turning MotionScroll on and off.',
+        images: [step5Img],
+      },
+      {
+        title: 'Turn on the camera',
+        desc: 'Back in the app, switch on the Camera toggle to start face tracking. You’re ready to scroll.',
+        images: [step6Img],
+      },
+    ],
   },
 ];
 
+const overlayBenefits = [
+  'Turn MotionScroll on or off without opening the app',
+  'Take back manual control at any moment',
+  'Never get stuck in auto-scroll mode',
+];
+
+// Every screenshot in a part, in order, so the viewer can page through the whole part.
+const lightboxItems = (part) =>
+  part.steps.flatMap((step, stepIndex) =>
+    step.images.map((src, imageIndex) => ({
+      src,
+      alt: `${part.label}, step ${stepIndex + 1}: ${step.title} (screenshot ${imageIndex + 1})`,
+      caption: `Step ${stepIndex + 1} · ${step.title}`,
+    })),
+  );
+
 function Guide() {
-  const [expandedImageIndex, setExpandedImageIndex] = useState(null);
-  const [activeImageSet, setActiveImageSet] = useState([]);
-  const { handleImageLoad, getImageClasses } = useImageFadeIn();
+  const [viewer, setViewer] = useState(null); // { items, index }
 
-  const openModal = (imageSrc, imageSet) => {
-    const index = imageSet.findIndex(img => img === imageSrc);
-    if (index !== -1) {
-      setActiveImageSet(imageSet);
-      setExpandedImageIndex(index);
-    }
+  const openViewer = (part, src) => {
+    const items = lightboxItems(part);
+    setViewer({ items, index: items.findIndex((item) => item.src === src) });
   };
 
-  const closeModal = () => {
-    setExpandedImageIndex(null);
-    setActiveImageSet([]);
+  const scrollToPart = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-
-  const goToNextImage = useCallback(() => {
-    if (expandedImageIndex !== null && activeImageSet.length > 0) {
-      setExpandedImageIndex(prev => prev < activeImageSet.length - 1 ? prev + 1 : prev);
-    }
-  }, [expandedImageIndex, activeImageSet]);
-
-  const goToPrevImage = useCallback(() => {
-    if (expandedImageIndex !== null && activeImageSet.length > 0) {
-      setExpandedImageIndex(prev => prev > 0 ? prev - 1 : prev);
-    }
-  }, [expandedImageIndex, activeImageSet]);
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (expandedImageIndex !== null) {
-        if (e.key === 'ArrowRight') goToNextImage();
-        else if (e.key === 'ArrowLeft') goToPrevImage();
-        else if (e.key === 'Escape') closeModal();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [expandedImageIndex, goToNextImage, goToPrevImage]);
-
-  const imgClass = (src) =>
-    getImageClasses(src, 'w-auto h-48 rounded-lg cursor-pointer transition-all duration-200 hover:opacity-80 ring-1 ring-white/10 hover:ring-white/25');
-
-  const setupImgClass = (src) =>
-    getImageClasses(src, 'w-24 h-auto md:w-28 rounded-lg cursor-pointer transition-all duration-200 hover:opacity-80 ring-1 ring-white/10 hover:ring-white/25 flex-shrink-0');
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-20 px-4 relative z-10">
-      {/* Header */}
-      <div className="text-center mb-14">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/12 bg-white/[0.06] text-[#d6ba73] text-[13px] font-medium mb-6 select-none shadow-sm">
-          Step-by-step setup
-        </div>
-        <h1 className="text-4xl md:text-5xl font-normal text-white mb-4">Installation Guide</h1>
-        <p className="text-white/58 max-w-md mx-auto leading-7">
-          Follow both guides in order — Permissions first, then Setup.
-        </p>
-      </div>
+    <div className="mx-auto max-w-4xl px-5 pb-24 pt-12 sm:px-6 md:pb-32 md:pt-20">
+      <SectionHeading
+        as="h1"
+        eyebrow="Setup guide"
+        title="Set up MotionScroll"
+        description="Two short parts: unlock restricted settings, then switch on the service. Follow them in order."
+      />
 
-      {/* ── Permissions section ── */}
-      <div className="mb-10 rounded-lg border border-[#9d8968]/25 overflow-hidden bg-[#9d8968]/10">
-        <div className="px-7 py-6 border-b border-[#9d8968]/20 flex items-start gap-3">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-[#9d8968]/10 border border-[#9d8968]/25">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-amber-400">
-              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-              <line x1="12" y1="9" x2="12" y2="13" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
-            </svg>
-          </div>
-          <div>
-            <h2 className="text-lg font-normal text-white mb-1">Step 0 — Allow Restricted Settings</h2>
-            <p className="text-[14px] text-[#d8caa7]/80 leading-7">
-              Due to Android security restrictions, you must manually allow restricted settings before MotionScroll can work. Complete these steps before the Setup Guide.
-            </p>
-          </div>
-        </div>
+      <Reveal className="mt-10 grid gap-3 sm:grid-cols-2">
+        {parts.map((part) => (
+          <button
+            key={part.id}
+            type="button"
+            onClick={() => scrollToPart(part.id)}
+            className="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 text-left transition-colors hover:border-ink/20"
+          >
+            <span>
+              <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-accent">{part.label}</span>
+              <span className="mt-1 block font-semibold tracking-tight text-ink">{part.title}</span>
+              <span className="mt-0.5 block text-sm text-muted">{part.steps.length} steps</span>
+            </span>
+            <ArrowRightIcon className="h-5 w-5 rotate-90 text-muted transition-transform group-hover:translate-y-0.5 group-hover:text-ink" />
+          </button>
+        ))}
+      </Reveal>
 
-        <div className="p-7 grid grid-cols-1 gap-5">
-          {/* Perm step 1 */}
-          <div className="rounded-lg border border-[#9d8968]/20 bg-black/25 p-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="w-6 h-6 rounded-full bg-[#9d8968]/15 border border-[#9d8968]/30 text-[#d8caa7] text-xs font-medium flex items-center justify-center flex-shrink-0">1</span>
-              <h3 className="text-[15px] font-normal text-white">Check Accessibility Settings</h3>
-            </div>
-            <p className="text-white/62 text-[14px] mb-5 leading-7">
-              After installing and opening MotionScroll, go to your phone's Accessibility settings and look for "Installed apps" or "Downloaded apps". MotionScroll will appear greyed out.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {permStep1Images.map((src, i) => (
-                <img key={i} src={src} alt={`Permission step 1 screenshot ${i + 1}`}
-                  className={imgClass(src)}
-                  onClick={() => openModal(src, permStep1Images)}
-                  onLoad={() => handleImageLoad(src)}
-                />
-              ))}
-            </div>
-          </div>
+      {parts.map((part) => (
+        <section key={part.id} id={part.id} className="scroll-mt-24 pt-20">
+          <Reveal className="border-b border-line pb-8">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-accent">{part.label}</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-[2.25rem]">{part.title}</h2>
+            <p className="mt-3 max-w-2xl text-[17px] leading-7 text-muted">{part.intro}</p>
+          </Reveal>
 
-          {/* Perm step 2 */}
-          <div className="rounded-lg border border-[#9d8968]/20 bg-black/25 p-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="w-6 h-6 rounded-full bg-[#9d8968]/15 border border-[#9d8968]/30 text-[#d8caa7] text-xs font-medium flex items-center justify-center flex-shrink-0">2</span>
-              <h3 className="text-[15px] font-normal text-white">Locate MotionScroll in Settings</h3>
-            </div>
-            <p className="text-white/62 text-[14px] mb-5 leading-7">
-              Go to your device Settings → Apps / Applications → find and select MotionScroll from the list.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {permStep2Images.map((src, i) => (
-                <img key={i} src={src} alt={`Permission step 2 screenshot ${i + 1}`}
-                  className={imgClass(src)}
-                  onClick={() => openModal(src, permStep2Images)}
-                  onLoad={() => handleImageLoad(src)}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Perm step 3 */}
-          <div className="rounded-lg border border-[#9d8968]/20 bg-black/25 p-6">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="w-6 h-6 rounded-full bg-[#9d8968]/15 border border-[#9d8968]/30 text-[#d8caa7] text-xs font-medium flex items-center justify-center flex-shrink-0">3</span>
-              <h3 className="text-[15px] font-normal text-white">Allow Restricted Settings</h3>
-            </div>
-            <p className="text-white/62 text-[14px] mb-5 leading-7">
-              On the MotionScroll app info page, tap the three dots (⋮) in the top-right corner and select "Allow restricted settings".
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {permStep3Images.map((src, i) => (
-                <img key={i} src={src} alt={`Permission step 3 screenshot ${i + 1}`}
-                  className={imgClass(src)}
-                  onClick={() => openModal(src, permStep3Images)}
-                  onLoad={() => handleImageLoad(src)}
-                />
-              ))}
-            </div>
-            <div className="flex items-center gap-2 mt-5 text-[13.5px] text-[#d6ba73]">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 flex-shrink-0">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-              </svg>
-              Done — you can now proceed to the Setup Guide below.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Setup Guide section ── */}
-      <div className="mb-10">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center text-[#d6ba73] flex-shrink-0 bg-[#d6ba73]/10 border border-[#d6ba73]/20">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
-            </svg>
-          </div>
-          <h2 className="text-xl font-normal text-white">Setup Guide</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-          {setupSteps.map((step, i) => (
-            <div key={i} className="rounded-lg border border-white/10 bg-white/[0.06] p-5 flex items-start gap-4 hover:bg-white/[0.075] transition-all duration-200">
-              <img
-                src={step.img}
-                alt={`Step ${i + 1}: ${step.title}`}
-                className={setupImgClass(step.img)}
-                onClick={() => openModal(step.img, setupImages)}
-                onLoad={() => handleImageLoad(step.img)}
+          <ol className="mt-10">
+            {part.steps.map((step, i) => (
+              <GuideStep
+                key={step.title}
+                number={i + 1}
+                step={step}
+                isLast={i === part.steps.length - 1}
+                onOpenImage={(src) => openViewer(part, src)}
               />
-              <div className="min-w-0">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="text-[11px] font-medium text-[#d6ba73] uppercase">Step {i + 1}</span>
-                </div>
-                <h4 className="text-[15px] font-normal text-white mb-1.5">{step.title}</h4>
-                {step.desc && <p className="text-white/58 text-[13.5px] leading-6">{step.desc}</p>}
-                {step.warning && (
-                  <div className="rounded-lg border border-[#9d8968]/25 bg-[#9d8968]/10 px-3 py-2.5 mt-1">
-                    <p className="text-[13px] text-[#d8caa7]/85 leading-6">
-                      <span className="font-medium">Important: </span>{step.warning}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Overlay tip */}
-        <div className="rounded-lg border border-white/10 bg-white/[0.06] p-6">
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-[#d6ba73] flex-shrink-0 bg-[#d6ba73]/10 border border-[#d6ba73]/20">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-                <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
-              </svg>
-            </div>
-            <h3 className="text-[15px] font-normal text-white">Using the Overlay Shortcut</h3>
-          </div>
-          <ul className="space-y-2">
-            {[
-              'Quickly enable or disable the service without opening the app',
-              'Helps you regain manual control at any moment',
-              'Prevents getting stuck in auto-scroll mode',
-              'Makes the overall experience smoother and more accessible',
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-[14px] text-white/58">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 text-[#d6ba73] flex-shrink-0 mt-0.5">
-                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                </svg>
-                {item}
-              </li>
             ))}
-          </ul>
-        </div>
-      </div>
+          </ol>
 
-      {/* ── Image modal ── */}
-      {expandedImageIndex !== null && activeImageSet.length > 0 && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(8px)' }}
-          onClick={closeModal}
-        >
-          {allPermissionSets.includes(activeImageSet) && expandedImageIndex > 0 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); goToPrevImage(); }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center hover:bg-white/20 transition"
-              aria-label="Previous image"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                <path fillRule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
-              </svg>
-            </button>
+          {part.id === 'restricted-settings' && (
+            <Reveal className="mt-10 flex items-center gap-3 rounded-2xl bg-brand/10 px-5 py-4 text-[15px] text-ink">
+              <CheckIcon className="h-5 w-5 shrink-0 text-accent" strokeWidth={2.25} />
+              Done. MotionScroll can now be enabled as an accessibility service.
+            </Reveal>
           )}
+        </section>
+      ))}
 
-          <div className="relative" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={activeImageSet[expandedImageIndex]}
-              alt={`Expanded step ${expandedImageIndex + 1}`}
-              className="block max-w-full max-h-[82vh] object-contain rounded-xl ring-1 ring-white/10"
-            />
-            <button
-              onClick={closeModal}
-              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center hover:bg-white/20 transition text-lg leading-none"
-              aria-label="Close"
-            >
-              ×
-            </button>
-          </div>
-
-          {allPermissionSets.includes(activeImageSet) && expandedImageIndex < activeImageSet.length - 1 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); goToNextImage(); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center hover:bg-white/20 transition"
-              aria-label="Next image"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                <path fillRule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-              </svg>
-            </button>
-          )}
+      <Reveal className="mt-16 rounded-3xl border border-line bg-surface p-7 sm:p-8">
+        <div className="flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-accent">
+            <ToggleIcon />
+          </span>
+          <h2 className="text-lg font-semibold tracking-tight text-ink">Why the overlay shortcut matters</h2>
         </div>
+        <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+          {overlayBenefits.map((benefit) => (
+            <li key={benefit} className="flex items-start gap-2.5 text-[15px] leading-6 text-muted">
+              <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent" strokeWidth={2.25} />
+              {benefit}
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <Reveal className="mt-4 flex flex-col items-start justify-between gap-5 rounded-3xl border border-line bg-surface p-7 sm:flex-row sm:items-center sm:p-8">
+        <div>
+          <h2 className="text-lg font-semibold tracking-tight text-ink">Stuck on a step?</h2>
+          <p className="mt-1 text-[15px] text-muted">Settings vary between phone makers. Open an issue and describe what you see.</p>
+        </div>
+        <Button href={ISSUES_URL} external variant="secondary">
+          <GitHubIcon />
+          Get help on GitHub
+        </Button>
+      </Reveal>
+
+      {viewer && (
+        <Lightbox
+          items={viewer.items}
+          index={viewer.index}
+          onClose={() => setViewer(null)}
+          onIndexChange={(index) => setViewer((current) => ({ ...current, index }))}
+        />
       )}
     </div>
+  );
+}
+
+function GuideStep({ number, step, isLast, onOpenImage }) {
+  return (
+    <Reveal as="li" className={`relative grid grid-cols-[2.25rem_1fr] gap-x-5 ${isLast ? '' : 'pb-12'}`}>
+      {!isLast && <span aria-hidden="true" className="absolute bottom-0 left-[1.125rem] top-11 w-px bg-line" />}
+      <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-surface font-mono text-sm font-medium text-ink">
+        {number}
+      </span>
+
+      <div className="min-w-0 pt-1">
+        <h3 className="text-lg font-semibold tracking-tight text-ink">{step.title}</h3>
+        {step.desc && <p className="mt-2 max-w-2xl text-[15px] leading-7 text-muted">{step.desc}</p>}
+        {step.warning && (
+          <div className="mt-3 flex max-w-2xl gap-3 rounded-xl border border-warn/25 bg-warn/[0.08] p-4 text-[15px] leading-6">
+            <AlertIcon className="mt-0.5 h-5 w-5 shrink-0 text-warn" />
+            <p className="text-muted">
+              <span className="font-medium text-ink">Important: </span>
+              {step.warning}
+            </p>
+          </div>
+        )}
+
+        <div className="-mx-1 mt-5 flex snap-x gap-3 overflow-x-auto px-1 pb-2">
+          {step.images.map((src, i) => (
+            <button
+              key={src}
+              type="button"
+              onClick={() => onOpenImage(src)}
+              aria-label={`Enlarge screenshot ${i + 1} for “${step.title}”`}
+              className="group relative shrink-0 snap-start overflow-hidden rounded-xl border border-line bg-subtle"
+            >
+              <img
+                src={src}
+                alt=""
+                loading="lazy"
+                width="1080"
+                height="2400"
+                className="h-56 w-auto transition-transform duration-300 group-hover:scale-[1.03] sm:h-64"
+              />
+              <span className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/60 text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                <ExpandIcon className="h-3.5 w-3.5" strokeWidth={2} />
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </Reveal>
   );
 }
 

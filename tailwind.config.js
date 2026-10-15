@@ -1,4 +1,8 @@
-const colors = require('tailwindcss/colors') // Import the colors object
+const defaultTheme = require('tailwindcss/defaultTheme');
+
+// Colors are CSS variables (see src/index.css) so light/dark mode is handled
+// in one place and every utility still supports opacity modifiers (bg-brand/10).
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,27 +12,23 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'geist-mono': ['"Geist Mono"', 'monospace'],
-        'inter': ['Inter', 'system-ui', 'sans-serif'],
-        'space-grotesk': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        sans: ['Geist', ...defaultTheme.fontFamily.sans],
+        mono: ['"Geist Mono"', ...defaultTheme.fontFamily.mono],
       },
       colors: {
-        // Map 'gray' to the 'neutral' palette for true monochrome
-        gray: colors.neutral, 
-        // Custom brand colors
+        canvas: token('canvas'),
+        surface: token('surface'),
+        subtle: token('subtle'),
+        ink: token('ink'),
+        muted: token('muted'),
+        line: token('line'),
         brand: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          DEFAULT: token('brand'),
+          strong: token('brand-strong'),
         },
-      }
+        accent: token('accent'),
+        warn: token('warn'),
+      },
     },
   },
   plugins: [],

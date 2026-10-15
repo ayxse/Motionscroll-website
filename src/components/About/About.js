@@ -1,71 +1,64 @@
 import React from 'react';
+import Reveal from '../ui/Reveal';
+import SectionHeading from '../ui/SectionHeading';
+import { ArrowUpRightIcon, GitHubIcon, LockIcon } from '../ui/Icons';
+import { REPO_URL } from '../../config';
+
+const story = [
+  'This makes reading and browsing more accessible and convenient, especially when your hands are occupied: eating, holding a baby, cooking, playing an instrument, or for anyone with limited mobility.',
+  'The app analyzes the front camera feed in real time to detect when you look up or down, then scrolls content in the same direction. Sensitivity is adjustable, so it can feel natural to you. No special hardware or setup is required, just a device with a front camera.',
+  'The goal is to bridge the gap between traditional input methods and modern accessibility needs, and to make digital content more inclusive for everyone.',
+];
 
 function About() {
   return (
-    <div className="w-full max-w-3xl mx-auto py-20 px-4 relative z-10">
-      {/* Header */}
-      <div className="text-center mb-14">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/12 bg-white/[0.06] text-[#d6ba73] text-[13px] font-medium mb-6 select-none shadow-sm">
-          Open Source · Apache 2.0
-        </div>
-        <h1 className="text-4xl md:text-5xl font-normal text-white mb-4">
-          About MotionScroll
-        </h1>
-        <p className="text-white/58 text-lg">
-          Accessible technology, built for everyone.
+    <div className="mx-auto max-w-3xl px-5 pb-24 pt-12 sm:px-6 md:pb-32 md:pt-20">
+      <SectionHeading as="h1" eyebrow="About" title="Accessible scrolling, built for everyone." />
+
+      <Reveal className="mt-10">
+        <p className="text-xl leading-9 text-ink sm:text-[1.375rem]">
+          MotionScroll was built to make scrolling hands-free. It uses your phone’s front-facing camera to track subtle head
+          movements and turns them into smooth, automatic scrolling.
         </p>
-      </div>
-
-      {/* Story */}
-      <div className="rounded-lg border border-white/10 bg-white/[0.06] p-8 mb-5 space-y-5">
-        {[
-          'MotionScroll was built to enable hands-free scrolling through head movement detection. The app uses your device\'s front-facing camera to track subtle head movements and translate them into smooth, automatic scrolling actions.',
-          'This makes reading and browsing more accessible and convenient — especially when your hands are occupied: eating, holding a baby, cooking, playing an instrument, or for users with limited mobility.',
-          'The app works by analyzing real-time video to detect when you look up or down, then scrolling content in the corresponding direction. Sensitivity is adjustable so the experience feels natural to you. No special hardware or setup required — just a device with a front camera.',
-          'The goal is to bridge the gap between traditional input methods and modern accessibility needs, making digital content inclusive for everyone.',
-        ].map((para, i) => (
-          <p key={i} className="text-white/66 text-[15px] leading-7">{para}</p>
-        ))}
-      </div>
-
-      {/* Privacy note */}
-      <div className="rounded-lg border border-[#d6ba73]/20 bg-[#d6ba73]/10 p-6 mb-5 flex gap-4">
-        <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-[#d6ba73] mt-0.5 bg-white/10 border border-[#d6ba73]/20">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor" className="w-4.5 h-4.5 w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-          </svg>
+        <div className="mt-8 space-y-6">
+          {story.map((paragraph) => (
+            <p key={paragraph.slice(0, 24)} className="text-[17px] leading-8 text-muted">
+              {paragraph}
+            </p>
+          ))}
         </div>
-        <div>
-          <h3 className="text-[15px] font-normal text-white mb-1">Privacy by design</h3>
-          <p className="text-white/66 text-[14px] leading-7">
-            All head-movement detection runs locally on your device. No video data is ever transmitted, stored, or shared externally. Your camera feed stays on your phone, always.
+      </Reveal>
+
+      <Reveal className="mt-14 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-3xl border border-line bg-surface p-7">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-accent">
+            <LockIcon />
+          </span>
+          <h2 className="mt-5 text-lg font-semibold tracking-tight text-ink">Privacy by design</h2>
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
+            All head-movement detection runs locally on your device. No video is ever transmitted, stored, or shared.
           </p>
         </div>
-      </div>
 
-      {/* GitHub */}
-      <div className="rounded-lg border border-white/10 bg-white/[0.06] p-8 text-center text-white">
-        <div className="w-11 h-11 rounded-lg flex items-center justify-center mx-auto mb-4 text-[#d6ba73] bg-[#d6ba73]/10 border border-[#d6ba73]/20">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.166 6.839 9.489.5.09.682-.218.682-.484 0-.236-.009-.866-.014-1.699-2.782.602-3.369-1.34-3.369-1.34-.455-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.071 1.532 1.03 1.532 1.03.891 1.529 2.341 1.089 2.91.833.091-.647.349-1.086.635-1.337-2.22-.252-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.682-.103-.254-.447-1.27.097-2.646 0 0 .84-.269 2.75 1.025A9.548 9.548 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.748-1.025 2.748-1.025.546 1.376.202 2.392.1 2.646.64.701 1.026 1.593 1.026 2.682 0 3.842-2.338 4.687-4.566 4.935.359.307.679.917.679 1.852 0 1.336-.012 2.415-.012 2.741 0 .269.18.579.688.481A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
-          </svg>
-        </div>
-        <h2 className="text-xl font-normal text-white mb-2">Open Source Project</h2>
-        <p className="text-white/65 text-[14.5px] mb-6 max-w-sm mx-auto leading-7">
-          MotionScroll is open source. Explore the code, report issues, or contribute on GitHub.
-        </p>
         <a
-          href="https://github.com/ayxse/MotionScroll"
+          href={REPO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[14.5px] text-[#d6ba73] hover:text-white font-medium transition-colors"
+          className="group flex flex-col rounded-3xl border border-line bg-surface p-7 transition-colors hover:border-ink/20"
         >
-          github.com/ayxse/MotionScroll
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
-            <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
-          </svg>
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-accent">
+            <GitHubIcon />
+          </span>
+          <h2 className="mt-5 text-lg font-semibold tracking-tight text-ink">Open source</h2>
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
+            Explore the code, report issues, or contribute. Licensed under Apache 2.0.
+          </p>
+          <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[15px] font-medium text-accent">
+            github.com/ayxse/MotionScroll
+            <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </span>
         </a>
-      </div>
+      </Reveal>
     </div>
   );
 }
